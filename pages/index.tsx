@@ -1,11 +1,16 @@
-import type { NextPage } from 'next';
+import SidebarLayout from '@components/templates/layouts/sidebar/SidebarLayout';
+import { NextPageWithLayout } from './_app';
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <section>
-      <h1 className="text-red-500 text-5xl">Hello world</h1>
+      <h1 className="text-4xl text-blue-600">Page With Sidebar Layout</h1>
     </section>
   );
 };
 
 export default Home;
+
+Home.getLayout = (page) => {
+  return <SidebarLayout>{page}</SidebarLayout>;
+};
