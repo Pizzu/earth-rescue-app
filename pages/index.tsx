@@ -4,9 +4,7 @@ import { NextPageWithLayout } from './_app';
 const Home: NextPageWithLayout = () => {
   return (
     <section>
-      <h1 className="text-displayOne text-primaryBlue">
-        Page With Sidebar Layout
-      </h1>
+      <h1 className="text-displayOne text-primaryBlue">Page With Sidebar Layout</h1>
     </section>
   );
 };
