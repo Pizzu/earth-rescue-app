@@ -8,7 +8,11 @@ export interface IDisplayText {
 }
 
 const DisplayText: React.FC<IDisplayText> = ({ elementTag, type, className, children }) => {
-  return React.createElement(elementTag, { className: `${type} ${className}` }, children);
+  return React.createElement(
+    elementTag,
+    { className: `${type} ${type === 'text-displayOne' ? 'font-medium' : 'font-bold'} ${className}` },
+    children
+  );
 };
 
 export default DisplayText;
