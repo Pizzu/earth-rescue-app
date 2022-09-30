@@ -26,3 +26,5 @@ jobs:
         run: npm install
       - name: Release a new version
         run: npx semantic-release
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
