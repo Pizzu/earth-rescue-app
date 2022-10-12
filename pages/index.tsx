@@ -2,11 +2,7 @@ import SidebarLayout from '@components/templates/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
-  return (
-    <section>
-      <h1 className="text-displayOne text-primaryBlue">Page With Sidebar Layout</h1>
-    </section>
-  );
+  return <section></section>;
 };
 
 export default Home;

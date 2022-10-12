@@ -4,11 +4,7 @@ module.exports = {
   theme: {
     colors: {
       transparent: 'transparent',
-      primaryBlue: '#1476FF',
-      secondaryBlue: {
-        200: '#F4F7FF',
-        700: '#004CFF',
-      },
+      primaryGreen: '#55C57A',
       secondaryPurple: {
         200: '#F6F1FF',
         700: '#9240FB',
@@ -36,7 +32,7 @@ module.exports = {
         500: '#989AAD',
         400: '#CACBD7',
         300: '#E9EAF3',
-        200: '#F7F9FC',
+        200: '#F9FCF7',
         100: '#FFFFFF',
       },
     },
