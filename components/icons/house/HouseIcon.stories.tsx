@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import HouseIcon, { IHouseIcon } from './HouseIcon';
+import HouseIcon from './HouseIcon';
+import { ISvgIcon } from '../../../types/icons';
 import { mockHouseIconProps } from './HouseIcon.mocks';
 
 export default {
@@ -17,8 +18,8 @@ export const HouseIconHighlighted = Template.bind({});
 
 HouseIconBase.args = {
   ...mockHouseIconProps.houseIcon,
-} as IHouseIcon;
+} as ISvgIcon;
 
 HouseIconHighlighted.args = {
   ...mockHouseIconProps.houseIconHighlighted,
-} as IHouseIcon;
+} as ISvgIcon;

@@ -1,18 +1,18 @@
 import { ISvgIcon } from '../../../types/icons';
 
-const houseIcon: ISvgIcon = {
+const treesIcon: ISvgIcon = {
   width: '5',
   height: '5',
   isHighlighted: false,
 };
 
-const houseIconHighlighted: ISvgIcon = {
+const treesIconHighlighted: ISvgIcon = {
   width: '5',
   height: '5',
   isHighlighted: true,
 };
 
-export const mockHouseIconProps = {
-  houseIcon,
-  houseIconHighlighted,
+export const mockTreesIconProps = {
+  treesIcon,
+  treesIconHighlighted,
 };

@@ -1,12 +1,7 @@
 import React from 'react';
+import { ISvgIcon } from '../../../types/icons';
 
-export interface IHouseIcon {
-  width: string;
-  height: string;
-  isHighlighted?: boolean;
-}
-
-const HouseIcon: React.FC<IHouseIcon> = ({ width, height, isHighlighted = false }) => {
+const HouseIcon: React.FC<ISvgIcon> = ({ width, height, isHighlighted = false }) => {
   return (
     <>
       <svg
