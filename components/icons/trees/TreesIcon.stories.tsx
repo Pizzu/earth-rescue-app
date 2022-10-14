@@ -1,25 +1,25 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ISvgIcon } from '../../../types/icons';
-import TreeIcon from './TreesIcon';
+import TreesIcon from './TreesIcon';
 import { mockTreesIconProps } from './TreesIcon.mocks';
 
 export default {
-  title: 'icons/HouseIcon',
-  component: TreeIcon,
+  title: 'icons/TreesIcon',
+  component: TreesIcon,
   argTypes: [],
-} as ComponentMeta<typeof TreeIcon>;
+} as ComponentMeta<typeof TreesIcon>;
 
-const Template: ComponentStory<typeof TreeIcon> = (args) => {
-  return <TreeIcon {...args} />;
+const Template: ComponentStory<typeof TreesIcon> = (args) => {
+  return <TreesIcon {...args} />;
 };
 
-export const TreeIconBase = Template.bind({});
-export const TreeIconHighlighted = Template.bind({});
+export const TreesIconBase = Template.bind({});
+export const TreesIconHighlighted = Template.bind({});
 
-TreeIconBase.args = {
+TreesIconBase.args = {
   ...mockTreesIconProps.treesIcon,
 } as ISvgIcon;
 
-TreeIconHighlighted.args = {
+TreesIconHighlighted.args = {
   ...mockTreesIconProps.treesIconHighlighted,
 } as ISvgIcon;

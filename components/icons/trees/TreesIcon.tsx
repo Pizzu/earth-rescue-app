@@ -1,7 +1,7 @@
 import React from 'react';
 import { ISvgIcon } from '../../../types/icons';
 
-const TreeIcon: React.FC<ISvgIcon> = ({ width, height, isHighlighted = false }) => {
+const TreesIcon: React.FC<ISvgIcon> = ({ width, height, isHighlighted = false }) => {
   return (
     <>
       <svg
@@ -33,4 +33,4 @@ const TreeIcon: React.FC<ISvgIcon> = ({ width, height, isHighlighted = false }) 
   );
 };
 
-export default TreeIcon;
+export default TreesIcon;
