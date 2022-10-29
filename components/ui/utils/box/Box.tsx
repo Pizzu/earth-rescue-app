@@ -1,6 +1,6 @@
 export interface IBox {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Box: React.FC<IBox> = ({ className, children }) => {

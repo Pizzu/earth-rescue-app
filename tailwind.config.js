@@ -39,6 +39,10 @@ module.exports = {
     extend: {
       width: {
         13: '3.3125rem',
+        22: '5.25rem',
+      },
+      height: {
+        0.06: '0.0625rem',
       },
       fontSize: {
         displayOne: '4.875rem',
