@@ -1,4 +1,4 @@
-import SidebarLayout from '@components/layouts/sidebar/SidebarLayout';
+import { SidebarLayout } from '@components/layouts';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {

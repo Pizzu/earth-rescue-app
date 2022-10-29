@@ -1,5 +1,5 @@
-import SidebarLink from '@components/link/sidebar/SidebarLink';
-import Logo from '@components/ui/logo/Logo';
+import { SidebarLink } from '@components/link';
+import { Logo } from '@components/ui';
 
 const Sidebar: React.FC = () => {
   return (
