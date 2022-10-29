@@ -1,5 +1,5 @@
 import { SingleText } from '@components/typography';
-import { SvgHandler } from '@components/ui';
+import { Box, SvgHandler } from '@components/ui';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
@@ -37,12 +37,12 @@ const SidebarLink: React.FC<ISidebarLink> = ({ title, icon, width, height, href 
   return (
     <Link href={href} passHref>
       <a ref={ref} className="inline-block">
-        <div className="grid auto-cols-auto gap-2 justify-items-center">
+        <Box className="grid auto-cols-auto gap-2 justify-items-center">
           <SvgHandler icon={icon} width={width} height={height} isHighlighted={isActive || hover ? true : false} />
           <SingleText className={`${isActive || hover ? 'text-primaryGreen' : 'text-neutral-800'} transition-colors`} type="text-100">
             {title}
           </SingleText>
-        </div>
+        </Box>
       </a>
     </Link>
   );
