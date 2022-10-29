@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Logo, { ILogo } from './Logo';
 import { mockLogoProps } from './Logo.mocks';
 export default {
-  title: 'common/Logo',
+  title: 'ui/Logo',
   component: Logo,
   argTypes: [],
 } as ComponentMeta<typeof Logo>;

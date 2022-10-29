@@ -1,5 +1,5 @@
-import SvgHandler from '@components/common/svg/SvgHandler';
 import { SingleText } from '@components/typography';
+import SvgHandler from '@components/ui/svg/SvgHandler';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';

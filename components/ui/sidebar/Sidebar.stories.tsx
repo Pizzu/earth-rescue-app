@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Sidebar from './Sidebar';
 
 export default {
-  title: 'common/Sidebar',
+  title: 'ui/Sidebar',
   component: Sidebar,
   argTypes: [],
 } as ComponentMeta<typeof Sidebar>;

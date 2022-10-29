@@ -3,7 +3,7 @@ import SvgHandler, { ISvgHandler } from './SvgHandler';
 import { mockSvgHanlderProps } from './SvgHandler.mocks';
 
 export default {
-  title: 'common/SvgHandler',
+  title: 'ui/SvgHandler',
   component: SvgHandler,
   argTypes: [],
 } as ComponentMeta<typeof SvgHandler>;

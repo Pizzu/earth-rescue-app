@@ -1,4 +1,4 @@
-import Sidebar from '@components/common/sidebar/Sidebar';
+import Sidebar from '@components/ui/sidebar/Sidebar';
 export interface ISidebarLayout {
   children: React.ReactNode;
 }
