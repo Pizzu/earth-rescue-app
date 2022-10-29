@@ -37,6 +37,9 @@ module.exports = {
       },
     },
     extend: {
+      width: {
+        13: '3.3125rem',
+      },
       fontSize: {
         displayOne: '4.875rem',
         displayTwo: '3.375rem',
