@@ -3,7 +3,7 @@ import { Box, Divider, Logo } from '@components/ui';
 
 const Sidebar: React.FC = () => {
   return (
-    <Box className="fixed top-0 left-0 h-screen w-22 bg-neutral-200">
+    <Box className="fixed top-0 left-0 h-screen w-22 bg-neutral-200 border-r-0.06 border-neutral-300">
       <Box className="flex justify-center flex-col items-center">
         <Box className="flex flex-col gap-3 pt-3">
           <Logo size="medium" position="relative" />

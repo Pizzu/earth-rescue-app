@@ -44,6 +44,12 @@ module.exports = {
       height: {
         0.06: '0.0625rem',
       },
+      flexBasis: {
+        22: '5.25rem',
+      },
+      borderWidth: {
+        0.06: '0.0625rem',
+      },
       fontSize: {
         displayOne: '4.875rem',
         displayTwo: '3.375rem',
