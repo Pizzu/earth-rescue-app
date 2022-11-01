@@ -3,7 +3,7 @@ import Box, { IBox } from './Box';
 import { mockBoxProps } from './Box.mocks';
 
 export default {
-  title: 'ui/Box',
+  title: 'ui/utils/Box',
   component: Box,
   argTypes: [],
 } as ComponentMeta<typeof Box>;

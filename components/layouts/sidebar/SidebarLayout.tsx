@@ -1,4 +1,4 @@
-import { Box, Sidebar } from '@components/ui';
+import { Box, Container, Sidebar } from '@components/ui';
 
 export interface ISidebarLayout {
   children: React.ReactNode;
@@ -10,7 +10,14 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
       <Sidebar />
       <Box className="flex justify-start">
         <Box className="basis-22 shrink-0 grow-0 h-0"></Box>
-        <Box className="pl-36 pr-36 w-full max-w-screen-2xl mx-auto">{children}</Box>
+        <Box className="flex-1">
+          <Box>
+            <Container>NAVBAR</Container>
+          </Box>
+          <Box className="pt-12">
+            <Container>{children}</Container>
+          </Box>
+        </Box>
       </Box>
     </>
   );

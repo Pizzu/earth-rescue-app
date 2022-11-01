@@ -50,6 +50,9 @@ module.exports = {
       borderWidth: {
         0.06: '0.0625rem',
       },
+      padding: {
+        27: '6.875rem',
+      },
       fontSize: {
         displayOne: '4.875rem',
         displayTwo: '3.375rem',

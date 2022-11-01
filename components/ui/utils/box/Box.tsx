@@ -4,7 +4,7 @@ export interface IBox {
 }
 
 const Box: React.FC<IBox> = ({ className, children }) => {
-  return <div className={`${className}`}>{children}</div>;
+  return className ? <div className={`${className}`}>{children}</div> : <div>{children}</div>;
 };
 
 export default Box;
