@@ -1,4 +1,4 @@
-import { Box, Container, Sidebar } from '@components/ui';
+import { Box, Container, MainContent, Sidebar } from '@components/ui';
 
 export interface ISidebarLayout {
   children: React.ReactNode;
@@ -14,9 +14,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = ({ children }) => {
           <Box>
             <Container>NAVBAR</Container>
           </Box>
-          <Box className="pt-12">
-            <Container>{children}</Container>
-          </Box>
+          <MainContent>{children}</MainContent>
         </Box>
       </Box>
     </>
