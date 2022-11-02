@@ -37,6 +37,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['Inter'],
+      },
       width: {
         13: '3.3125rem',
         22: '5.25rem',
