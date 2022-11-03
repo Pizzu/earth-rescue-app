@@ -8,5 +8,5 @@ const Home: NextPageWithLayout = () => {
 export default Home;
 
 Home.getLayout = (page) => {
-  return <SidebarLayout>{page}</SidebarLayout>;
+  return <SidebarLayout pageTitle="Dashboard">{page}</SidebarLayout>;
 };

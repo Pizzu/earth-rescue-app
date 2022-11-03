@@ -8,5 +8,5 @@ const TreesPage: NextPageWithLayout = () => {
 export default TreesPage;
 
 TreesPage.getLayout = (page) => {
-  return <SidebarLayout>{page}</SidebarLayout>;
+  return <SidebarLayout pageTitle="Our Trees">{page}</SidebarLayout>;
 };

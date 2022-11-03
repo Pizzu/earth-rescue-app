@@ -8,5 +8,5 @@ const GoalsPage: NextPageWithLayout = () => {
 export default GoalsPage;
 
 GoalsPage.getLayout = (page) => {
-  return <SidebarLayout>{page}</SidebarLayout>;
+  return <SidebarLayout pageTitle="Goals">{page}</SidebarLayout>;
 };

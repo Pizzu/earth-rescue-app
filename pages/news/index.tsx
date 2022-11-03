@@ -8,5 +8,5 @@ const NewsPage: NextPageWithLayout = () => {
 export default NewsPage;
 
 NewsPage.getLayout = (page) => {
-  return <SidebarLayout>{page}</SidebarLayout>;
+  return <SidebarLayout pageTitle="News">{page}</SidebarLayout>;
 };

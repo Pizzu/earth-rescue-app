@@ -8,5 +8,5 @@ const CommunityPage: NextPageWithLayout = () => {
 export default CommunityPage;
 
 CommunityPage.getLayout = (page) => {
-  return <SidebarLayout>{page}</SidebarLayout>;
+  return <SidebarLayout pageTitle="Community">{page}</SidebarLayout>;
 };

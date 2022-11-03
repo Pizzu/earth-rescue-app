@@ -1,16 +1,19 @@
 import { SingleText } from '@components/typography';
 import { Box, Container } from '@components/ui';
 
-const Navbar: React.FC = () => {
+export interface INavbar {
+  title: string;
+}
+
+const Navbar: React.FC<INavbar> = ({ title }) => {
   return (
     <Box className="shadow-[0_2px_25px_rgba(0,0,0,0.05)]">
       <Container>
         <Box className="flex justify-between py-4">
           <Box className="flex items-center gap-8">
             <SingleText type="text-400" weight="font-medium">
-              Dashboard
+              {title}
             </SingleText>
-            <Box>Search bar</Box>
           </Box>
           <Box className="flex items-center gap-8">
             <Box>Cart Svg</Box>
