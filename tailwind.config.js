@@ -54,6 +54,7 @@ module.exports = {
         0.06: '0.0625rem',
       },
       padding: {
+        3.5: '0.9375rem',
         27: '6.875rem',
       },
       fontSize: {

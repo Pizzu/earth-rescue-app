@@ -9,7 +9,7 @@ const Navbar: React.FC<INavbar> = ({ title }) => {
   return (
     <Box className="shadow-[0_2px_25px_rgba(0,0,0,0.05)]">
       <Container>
-        <Box className="flex justify-between py-4">
+        <Box className="flex justify-between py-3.5">
           <Box className="flex items-center gap-8">
             <SingleText type="text-400" weight="font-medium">
               {title}

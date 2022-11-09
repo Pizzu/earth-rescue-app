@@ -7,7 +7,7 @@ const NewsIcon: React.FC<ISvgIcon> = ({ width, height, isHighlighted = false }) 
       <svg
         width={`${width}rem`}
         height={`${height}rem`}
-        className={`fill-transparent stroke-neutral-800 ${isHighlighted && 'stroke-primaryGreen'} transition-all`}
+        className={`fill-transparent ${isHighlighted ? 'stroke-primaryGreen' : 'stroke-neutral-800 '} transition-all`}
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
