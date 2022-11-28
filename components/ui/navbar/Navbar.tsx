@@ -1,5 +1,5 @@
 import { SingleText } from '@components/typography';
-import { Box, Container, Searchbar, SvgHandler } from '@components/ui';
+import { Box, Cart, Container, Searchbar } from '@components/ui';
 
 export interface INavbar {
   title: string;
@@ -19,9 +19,7 @@ const Navbar: React.FC<INavbar> = ({ title }) => {
             </Box>
           </Box>
           <Box className="flex items-center gap-8">
-            <Box>
-              <SvgHandler width="1.875" height="1.875" icon="shoppingIcon" />
-            </Box>
+            <Cart />
             <Box>App settings</Box>
           </Box>
         </Box>

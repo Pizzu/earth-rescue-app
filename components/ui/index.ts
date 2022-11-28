@@ -1,3 +1,5 @@
+export { default as Cart } from './cart/Cart';
+export { default as CartNumber } from './cart/number/CartNumber';
 export { default as Divider } from './divider/Divider';
 export { default as Logo } from './logo/Logo';
 export { default as Navbar } from './navbar/Navbar';
