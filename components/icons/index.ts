@@ -1,3 +1,4 @@
+export { default as ChevronDownIcon } from './chevron/ChevronDownIcon';
 export { default as CommunityIcon } from './community/CommunityIcon';
 export { default as GoalsIcon } from './goals/GoalsIcon';
 export { default as HouseIcon } from './house/HouseIcon';

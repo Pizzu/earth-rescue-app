@@ -1,3 +1,5 @@
+export { default as AccountNav } from './account/AccountNav';
+export { default as Avatar } from './avatar/Avatar';
 export { default as Cart } from './cart/Cart';
 export { default as CartNumber } from './cart/number/CartNumber';
 export { default as Divider } from './divider/Divider';

@@ -1,7 +1,16 @@
-import { CommunityIcon, GoalsIcon, HouseIcon, NewsIcon, SearchIcon, ShoppingIcon, TreesIcon } from '@components/icons';
+import {
+  ChevronDownIcon,
+  CommunityIcon,
+  GoalsIcon,
+  HouseIcon,
+  NewsIcon,
+  SearchIcon,
+  ShoppingIcon,
+  TreesIcon,
+} from '@components/icons';
 
 export interface ISvgHandler {
-  icon: 'houseIcon' | 'goalsIcon' | 'communityIcon' | 'treesIcon' | 'newsIcon' | 'searchIcon' | 'shoppingIcon';
+  icon: 'houseIcon' | 'goalsIcon' | 'communityIcon' | 'treesIcon' | 'newsIcon' | 'searchIcon' | 'shoppingIcon' | 'chevronDownIcon';
   width?: string;
   height?: string;
   isHighlighted?: boolean;
@@ -23,6 +32,8 @@ const SvgHandler: React.FC<ISvgHandler> = ({ icon, width = '2', height = '2', is
       return <SearchIcon width={width} height={height} isHighlighted={isHighlighted} />;
     case 'shoppingIcon':
       return <ShoppingIcon width={width} height={height} isHighlighted={isHighlighted} />;
+    case 'chevronDownIcon':
+      return <ChevronDownIcon width={width} height={height} isHighlighted={isHighlighted} />;
     default:
       return null;
   }
