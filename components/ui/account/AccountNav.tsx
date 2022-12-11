@@ -8,7 +8,7 @@ export interface IAccountNav {
 
 const AccountNav: React.FC<IAccountNav> = ({ username, profileImg }) => {
   return (
-    <Box className="flex gap-3 items-center">
+    <Box className="flex gap-3 items-center cursor-pointer">
       <Box className="flex gap-2 items-center">
         <Avatar profileImg={profileImg} />
         <Box>
