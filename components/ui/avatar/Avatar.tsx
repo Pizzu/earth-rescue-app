@@ -1,4 +1,3 @@
-import { Box } from '@components/ui';
 import Image from 'next/image';
 
 export interface IAvatar {
@@ -7,9 +6,9 @@ export interface IAvatar {
 
 const Avatar: React.FC<IAvatar> = ({ profileImg }) => {
   return (
-    <Box className="relative w-10 h-10">
+    <div className="relative w-10 h-10">
       <Image className="object-cover rounded-full" src={profileImg ?? ''} alt="Profile image" layout="fill" />
-    </Box>
+    </div>
   );
 };
 

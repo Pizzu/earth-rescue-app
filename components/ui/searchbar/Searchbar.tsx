@@ -1,4 +1,4 @@
-import { Box, SvgHandler } from '@components/ui';
+import { SvgHandler } from '@components/ui';
 
 const Searchbar: React.FC = () => {
   return (
@@ -6,10 +6,10 @@ const Searchbar: React.FC = () => {
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">
         Search
       </label>
-      <Box className="relative">
-        <Box className="flex absolute inset-y-0 left-0 items-center pl-5 pointer-events-none">
+      <div className="relative">
+        <div className="flex absolute inset-y-0 left-0 items-center pl-5 pointer-events-none">
           <SvgHandler icon="searchIcon" width="1.25" height="1.25" />
-        </Box>
+        </div>
         <input
           type="text"
           id="default-search"
@@ -17,7 +17,7 @@ const Searchbar: React.FC = () => {
           placeholder="Search for a tree..."
           required={true}
         />
-      </Box>
+      </div>
     </form>
   );
 };

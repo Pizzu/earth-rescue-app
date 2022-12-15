@@ -1,4 +1,4 @@
-import { Box, Container } from '@components/ui';
+import { Container } from '@components/ui';
 
 export interface IMainContent {
   children?: React.ReactNode;
@@ -6,9 +6,9 @@ export interface IMainContent {
 
 const MainContent: React.FC<IMainContent> = ({ children }) => {
   return (
-    <Box className="pt-12">
+    <div className="pt-12">
       <Container>{children}</Container>
-    </Box>
+    </div>
   );
 };
 
