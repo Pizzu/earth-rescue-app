@@ -1,39 +1,56 @@
-import { SingleText } from '@components/typography';
-import { Avatar, SvgHandler } from '@components/ui';
-import Link from 'next/link';
+import { AccountNavBtn, AccountNavMenu } from '@components/ui';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 
 export interface IAccountNav {
   username: string;
   profileImg?: string;
 }
 
+const menuVariants = {
+  open: {
+    y: '100%',
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.5,
+    },
+  },
+  closed: {
+    y: '100%',
+    scale: 0,
+    opacity: 0,
+    transition: {
+      type: 'spring',
+      duration: 0.4,
+    },
+  },
+};
+
 const AccountNav: React.FC<IAccountNav> = ({ username, profileImg }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const onAccountBtnClicked = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="relative">
-      <div className="flex gap-3 items-center cursor-pointer">
-        <div className="flex gap-2 items-center">
-          <Avatar profileImg={profileImg} />
-          <div>
-            <SingleText type="text-200" weight="font-medium">
-              {username}
-            </SingleText>
-            <SingleText type="text-100" weight="font-medium" className="text-neutral-600">
-              Account Settings
-            </SingleText>
-          </div>
-        </div>
-        <div>
-          <SvgHandler icon="chevronDownIcon" width="1.2" height="1.2" />
-        </div>
-      </div>
-      <div className="absolute w-full top-full left-0 flex flex-col p-6 bg-neutral-100 shadow-[0_2px_25px_rgba(0,0,0,0.05)] border-neutral-300 border-0.06 rounded-3xl">
-        <Link href={'/news'} passHref>
-          <a className={'text-primaryGreen transition-colors'}>Documentation</a>
-        </Link>
-        <Link href={'/news'} passHref>
-          <a className={'text-primaryGreen transition-colors'}>Documentation</a>
-        </Link>
-      </div>
+      <AccountNavBtn username={username} profileImg={profileImg} onBtnClicked={onAccountBtnClicked} />
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            variants={menuVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="absolute w-full bottom-0 left-0 "
+          >
+            <AccountNavMenu />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
