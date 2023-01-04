@@ -37,7 +37,7 @@ const AccountNav: React.FC<IAccountNav> = ({ username, profileImg }) => {
 
   return (
     <div className="relative">
-      <AccountNavBtn username={username} profileImg={profileImg} onBtnClicked={onAccountBtnClicked} />
+      <AccountNavBtn username={username} profileImg={profileImg} onBtnClicked={onAccountBtnClicked} isActive={isMenuOpen} />
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

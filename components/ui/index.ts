@@ -1,5 +1,6 @@
 export { default as AccountNav } from './account/AccountNav';
 export { default as AccountNavBtn } from './account/btn/AccountNavBtn';
+export { default as AccountNavMenuItem } from './account/item/AccountNavMenuItem';
 export { default as AccountNavMenu } from './account/menu/AccountNavMenu';
 export { default as Avatar } from './avatar/Avatar';
 export { default as Cart } from './cart/Cart';

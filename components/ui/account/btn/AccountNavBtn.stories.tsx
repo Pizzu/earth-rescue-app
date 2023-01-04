@@ -3,7 +3,7 @@ import AccountNavBtn, { IAccountNavBtn } from './AccountNavBtn';
 import { mockaccountNavBtnProps } from './AccountNavBtn.mocks';
 
 export default {
-  title: 'ui/account/AccountNavBtn',
+  title: 'ui/account/btn/AccountNavBtn',
   component: AccountNavBtn,
   argTypes: [],
 } as ComponentMeta<typeof AccountNavBtn>;

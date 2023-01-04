@@ -1,20 +1,22 @@
 import { SingleText } from '@components/typography';
 import { Avatar, SvgHandler } from '@components/ui';
+import { motion } from 'framer-motion';
 import { MouseEventHandler } from 'react';
 
 export interface IAccountNavBtn {
   username: string;
   profileImg?: string;
   onBtnClicked?: MouseEventHandler<HTMLDivElement>;
+  isActive?: boolean;
 }
 
-const AccountNavBtn: React.FC<IAccountNavBtn> = ({ username, profileImg, onBtnClicked }) => {
+const AccountNavBtn: React.FC<IAccountNavBtn> = ({ username, profileImg, onBtnClicked, isActive = false }) => {
   return (
     <div onClick={onBtnClicked} className="flex gap-3 items-center cursor-pointer">
       <div className="flex gap-2 items-center">
         <Avatar profileImg={profileImg} />
         <div>
-          <SingleText type="text-200" weight="font-medium">
+          <SingleText type="text-200" weight="font-medium" className={`${isActive ? 'text-primaryGreen' : ''} transition-colors`}>
             {username}
           </SingleText>
           <SingleText type="text-100" weight="font-medium" className="text-neutral-600">
@@ -22,9 +24,9 @@ const AccountNavBtn: React.FC<IAccountNavBtn> = ({ username, profileImg, onBtnCl
           </SingleText>
         </div>
       </div>
-      <div>
-        <SvgHandler icon="chevronDownIcon" width="1.2" height="1.2" />
-      </div>
+      <motion.div animate={{ rotate: isActive ? 180 : 0 }}>
+        <SvgHandler icon="chevronDownIcon" width="1.2" height="1.2" isHighlighted={isActive} />
+      </motion.div>
     </div>
   );
 };

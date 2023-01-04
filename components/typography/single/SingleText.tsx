@@ -7,7 +7,7 @@ export interface ISingleText {
 }
 
 const SingleText: React.FC<ISingleText> = ({ type, weight = 'font-normal', isUppercase = false, className, children }) => {
-  return <div className={`${type} ${weight} ${isUppercase && 'uppercase'} ${className}`}>{children}</div>;
+  return <div className={`${type} ${weight} ${isUppercase ? 'uppercase' : ''} ${className}`}>{children}</div>;
 };
 
 export default SingleText;

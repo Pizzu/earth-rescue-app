@@ -3,7 +3,7 @@ import AccountNav, { IAccountNav } from './AccountNav';
 import { mockAccountNavProps } from './AccountNav.mocks';
 
 export default {
-  title: 'ui/AccountNav',
+  title: 'ui/account/AccountNav',
   component: AccountNav,
   argTypes: [],
 } as ComponentMeta<typeof AccountNav>;

@@ -1,8 +1,8 @@
 import { SingleText } from '@components/typography';
 import { SvgHandler } from '@components/ui';
+import { useHover } from '@hooks/useHover';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
 
 export interface ISidebarLink {
   title: string;
@@ -13,26 +13,9 @@ export interface ISidebarLink {
 }
 
 const SidebarLink: React.FC<ISidebarLink> = ({ title, icon, width, height, href }) => {
-  const [hover, setHover] = useState(false);
-  const ref = useRef<HTMLAnchorElement>(null);
-
+  const { ref, hover } = useHover();
   const { pathname } = useRouter();
   const isActive = pathname === href ? true : false;
-
-  useEffect(() => {
-    const handleMouseOver = () => setHover(true);
-    const handleMouseOut = () => setHover(false);
-
-    const node = ref.current;
-    if (node) {
-      node.addEventListener('mouseover', handleMouseOver);
-      node.addEventListener('mouseout', handleMouseOut);
-      return () => {
-        node.removeEventListener('mouseover', handleMouseOver);
-        node.removeEventListener('mouseout', handleMouseOut);
-      };
-    }
-  }, []);
 
   return (
     <Link href={href} passHref>
