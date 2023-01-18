@@ -2,16 +2,17 @@ import { SingleText } from '@components/typography';
 import SvgHandler from '@components/ui/svg/SvgHandler';
 import { useHover } from '@hooks/useHover';
 import Link from 'next/link';
+import { Icon } from '../../../../types/icons';
 
-export interface IAccountNavMenuItem {
+export interface IAccountNavMenuItem extends Icon {
   title: string;
   href: string;
-  icon: 'houseIcon' | 'goalsIcon' | 'communityIcon' | 'treesIcon' | 'newsIcon';
   width?: string;
   height?: string;
+  danger?: boolean;
 }
 
-const AccountNavMenuItem: React.FC<IAccountNavMenuItem> = ({ title, href, icon, width, height }) => {
+const AccountNavMenuItem: React.FC<IAccountNavMenuItem> = ({ title, href, icon, width, height, danger = false }) => {
   const { ref, hover } = useHover();
 
   return (
@@ -23,7 +24,7 @@ const AccountNavMenuItem: React.FC<IAccountNavMenuItem> = ({ title, href, icon, 
         <SingleText
           type="text-200"
           weight="font-medium"
-          className={`${hover ? 'text-primaryGreen' : 'text-neutral-600'} transition-colors`}
+          className={`${danger ? 'text-secondaryRed-700' : hover ? 'text-primaryGreen' : 'text-neutral-600'} transition-colors`}
         >
           {title}
         </SingleText>

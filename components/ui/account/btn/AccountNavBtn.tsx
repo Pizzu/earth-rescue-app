@@ -6,16 +6,16 @@ import { MouseEventHandler } from 'react';
 export interface IAccountNavBtn {
   username: string;
   profileImg?: string;
-  onBtnClicked?: MouseEventHandler<HTMLDivElement>;
+  onBtnClicked?: MouseEventHandler<HTMLDivElement | HTMLButtonElement>;
   isActive?: boolean;
 }
 
 const AccountNavBtn: React.FC<IAccountNavBtn> = ({ username, profileImg, onBtnClicked, isActive = false }) => {
   return (
-    <div onClick={onBtnClicked} className="flex gap-3 items-center cursor-pointer">
+    <button onClick={onBtnClicked} className="flex gap-3 items-center cursor-pointer">
       <div className="flex gap-2 items-center">
         <Avatar profileImg={profileImg} />
-        <div>
+        <div className="flex flex-col items-start">
           <SingleText type="text-200" weight="font-medium" className={`${isActive ? 'text-primaryGreen' : ''} transition-colors`}>
             {username}
           </SingleText>
@@ -27,7 +27,7 @@ const AccountNavBtn: React.FC<IAccountNavBtn> = ({ username, profileImg, onBtnCl
       <motion.div animate={{ rotate: isActive ? 180 : 0 }}>
         <SvgHandler icon="chevronDownIcon" width="1.2" height="1.2" isHighlighted={isActive} />
       </motion.div>
-    </div>
+    </button>
   );
 };
 
