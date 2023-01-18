@@ -1,0 +1,14 @@
+export { default as ChevronDownIcon } from './chevron/ChevronDownIcon';
+export { default as CommunityIcon } from './community/CommunityIcon';
+export { default as GoalsIcon } from './goals/GoalsIcon';
+export { default as HelpIcon } from './help/HelpIcon';
+export { default as HouseIcon } from './house/HouseIcon';
+export { default as LogoutIcon } from './logout/LogoutIcon';
+export { default as NewsIcon } from './news/NewsIcon';
+export { default as ReceiptIcon } from './receipt/ReceiptIcon';
+export { default as SearchIcon } from './search/SearchIcon';
+export { default as SettingsIcon } from './settings/SettingsIcon';
+export { default as ShoppingIcon } from './shopping/ShoppingIcon';
+export { default as SupportIcon } from './support/SupportIcon';
+export { default as TreesIcon } from './trees/TreesIcon';
+export { default as UserIcon } from './user/UserIcon';

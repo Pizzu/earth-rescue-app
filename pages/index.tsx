@@ -1,16 +1,12 @@
-import SidebarLayout from '@components/templates/layouts/sidebar/SidebarLayout';
+import { SidebarLayout } from '@components/layouts';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
-  return (
-    <section>
-      <h1 className="text-displayOne text-primaryBlue">Page With Sidebar Layout</h1>
-    </section>
-  );
+  return <section>Dashboard page</section>;
 };
 
 export default Home;
 
 Home.getLayout = (page) => {
-  return <SidebarLayout>{page}</SidebarLayout>;
+  return <SidebarLayout pageTitle="Dashboard">{page}</SidebarLayout>;
 };
