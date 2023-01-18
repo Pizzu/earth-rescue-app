@@ -4,11 +4,7 @@ module.exports = {
   theme: {
     colors: {
       transparent: 'transparent',
-      primaryBlue: '#1476FF',
-      secondaryBlue: {
-        200: '#F4F7FF',
-        700: '#004CFF',
-      },
+      primaryGreen: '#55C57A',
       secondaryPurple: {
         200: '#F6F1FF',
         700: '#9240FB',
@@ -36,11 +32,31 @@ module.exports = {
         500: '#989AAD',
         400: '#CACBD7',
         300: '#E9EAF3',
-        200: '#F7F9FC',
+        200: '#F9FCF7',
         100: '#FFFFFF',
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['Inter'],
+      },
+      width: {
+        13: '3.3125rem',
+        22: '5.25rem',
+      },
+      height: {
+        0.06: '0.0625rem',
+      },
+      flexBasis: {
+        22: '5.25rem',
+      },
+      borderWidth: {
+        0.06: '0.0625rem',
+      },
+      padding: {
+        3.5: '0.9375rem',
+        27: '6.875rem',
+      },
       fontSize: {
         displayOne: '4.875rem',
         displayTwo: '3.375rem',
@@ -63,5 +79,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
