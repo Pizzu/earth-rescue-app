@@ -3,7 +3,7 @@ export interface IContainer {
 }
 
 const Container: React.FC<IContainer> = ({ children }) => {
-  return <div className="pl-27 pr-27 w-full max-w-screen-2xl mx-auto">{children}</div>;
+  return <main className="pl-27 pr-27 w-full max-w-screen-2xl mx-auto">{children}</main>;
 };
 
 export default Container;
