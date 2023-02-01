@@ -1,0 +1,37 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-earthrescueapp-dev-212333-authRole",
+      "UnauthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-dev-212333-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-dev-212333-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-earthrescueapp-dev-212333-deployment",
+      "UnauthRoleName": "amplify-earthrescueapp-dev-212333-unauthRole",
+      "StackName": "amplify-earthrescueapp-dev-212333",
+      "StackId": "arn:aws:cloudformation:us-east-1:619341907570:stack/amplify-earthrescueapp-dev-212333/a428f510-9f49-11ed-9311-0acf25632f1d",
+      "AmplifyAppId": "daqmxr6c62kxp",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-earthrescueapp-dev-212333-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "earthrescueapp8672bddf": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "earthrescueapp8672bddfPostConfirmation": {
+          "GROUP": "Customers",
+          "deploymentBucketName": "amplify-earthrescueapp-dev-212333-deployment",
+          "s3Key": "amplify-builds/earthrescueapp8672bddfPostConfirmation-6654424664454b676a6f-build.zip"
+        },
+        "AdminQueriesfc1ee69e": {
+          "deploymentBucketName": "amplify-earthrescueapp-dev-212333-deployment",
+          "s3Key": "amplify-builds/AdminQueriesfc1ee69e-62344d6e4e5333734c44-build.zip"
+        }
+      },
+      "api": {
+        "earthrescueapi": {},
+        "AdminQueries": {}
+      }
+    }
+  }
+}
