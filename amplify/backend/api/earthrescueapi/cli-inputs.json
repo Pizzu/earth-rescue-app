@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "earthrescueapi",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 364,
+      "apiKeyExpirationDate": "2024-01-27T20:34:29.423Z",
+      "keyDescription": "earthrescue api key"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authearthrescueapp8672bddf"
+      }
+    ]
+  }
+}
