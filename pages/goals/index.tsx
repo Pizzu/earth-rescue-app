@@ -7,6 +7,9 @@ const GoalsPage: NextPageWithLayout = () => {
 
 export default GoalsPage;
 
-GoalsPage.getLayout = (page) => {
-  return <SidebarLayout pageTitle="Goals">{page}</SidebarLayout>;
+GoalsPage.properties = {
+  pageAuth: { isAuthRequired: true, authLevel: 'Customers' },
+  getLayout: (page) => {
+    return <SidebarLayout pageTitle="Goals">{page}</SidebarLayout>;
+  },
 };

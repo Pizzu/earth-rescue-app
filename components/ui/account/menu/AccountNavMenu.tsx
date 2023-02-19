@@ -1,6 +1,15 @@
 import { AccountNavMenuItem, Divider } from '@components/ui';
+import { Auth } from 'aws-amplify';
 
 const AccountNavMenu: React.FC = () => {
+  const logoutUser = async () => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-3 p-4 bg-neutral-100 shadow-[0_2px_25px_rgba(0,0,0,0.05)] border-neutral-300 border-0.06 rounded-3xl">
       <div className="flex flex-col gap-2">
@@ -12,7 +21,7 @@ const AccountNavMenu: React.FC = () => {
       <div className="flex flex-col gap-2">
         <AccountNavMenuItem title="Help center" href="/help" width="1.5" height="1.5" icon={'helpIcon'} />
         <AccountNavMenuItem title="Support" href="/support" width="1.5" height="1.5" icon={'supportIcon'} />
-        <AccountNavMenuItem title="Logout" href="/logout" width="1.5" height="1.5" icon={'logoutIcon'} danger={true} />
+        <AccountNavMenuItem title="Logout" width="1.5" height="1.5" icon={'logoutIcon'} danger={true} onClick={logoutUser} />
       </div>
     </div>
   );

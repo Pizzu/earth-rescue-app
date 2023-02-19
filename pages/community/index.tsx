@@ -7,6 +7,9 @@ const CommunityPage: NextPageWithLayout = () => {
 
 export default CommunityPage;
 
-CommunityPage.getLayout = (page) => {
-  return <SidebarLayout pageTitle="Community">{page}</SidebarLayout>;
+CommunityPage.properties = {
+  pageAuth: { isAuthRequired: true, authLevel: 'Customers' },
+  getLayout: (page) => {
+    return <SidebarLayout pageTitle="Community">{page}</SidebarLayout>;
+  },
 };

@@ -7,6 +7,9 @@ const TreesPage: NextPageWithLayout = () => {
 
 export default TreesPage;
 
-TreesPage.getLayout = (page) => {
-  return <SidebarLayout pageTitle="Our Trees">{page}</SidebarLayout>;
+TreesPage.properties = {
+  pageAuth: { isAuthRequired: true, authLevel: 'Customers' },
+  getLayout: (page) => {
+    return <SidebarLayout pageTitle="Trees">{page}</SidebarLayout>;
+  },
 };
