@@ -1,4 +1,4 @@
-import { ISvgIcon } from '../../../types/icons';
+import { ISvgIcon } from '@type/icons';
 
 const settingsIcon: ISvgIcon = {
   width: '5',

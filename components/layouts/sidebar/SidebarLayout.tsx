@@ -1,5 +1,4 @@
 import { MainContent, Navbar, Sidebar } from '@components/ui';
-import { useSession } from '@providers/SessionProvider';
 
 export interface ISidebarLayout {
   pageTitle: string;
@@ -7,8 +6,6 @@ export interface ISidebarLayout {
 }
 
 const SidebarLayout: React.FC<ISidebarLayout> = ({ pageTitle, children }) => {
-  const user = useSession();
-  console.log('Sidebar', user);
   return (
     <>
       <Sidebar />

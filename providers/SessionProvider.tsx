@@ -1,24 +1,19 @@
 import { CognitoUser } from '@aws-amplify/auth';
+import { ISessionContext } from '@type/auth';
 import { Auth, Hub } from 'aws-amplify';
 import { createContext, useContext, useEffect, useState } from 'react';
-
 export interface ISessionProvider {
-  session?: boolean;
   children: React.ReactNode;
 }
 
-const SessionContext = createContext<CognitoUser | null>(null);
+const SessionContext = createContext<ISessionContext | null>(null);
 
-const SessionProvider: React.FC<ISessionProvider> = ({ session, children }) => {
-  const [user, setUser] = useState<CognitoUser | null>(null);
+const SessionProvider: React.FC<ISessionProvider> = ({ children }) => {
+  const [userAuth, setUserAuth] = useState<ISessionContext | null>(null);
 
   useEffect(() => {
-    if (session) {
-      console.log('We have a session');
-    } else {
-      checkUserAuth();
-    }
-  }, [session]);
+    checkUserAuth();
+  }, []);
 
   useEffect(() => {
     const removeHubListener = Hub.listen('auth', () => {
@@ -33,22 +28,21 @@ const SessionProvider: React.FC<ISessionProvider> = ({ session, children }) => {
 
   const checkUserAuth = async () => {
     try {
+      setUserAuth({ user: null, isLoading: true, cognitoGroup: null });
       const amplifyUser: CognitoUser = await Auth.currentAuthenticatedUser();
-      console.log('AmplifyUser set in provider', amplifyUser);
-      // console.log(await Auth.userAttributes(amplifyUser));
-      // const data = await Auth.userSession(amplifyUser);
-      // const c = data.getAccessToken();
-      // console.log(c.payload['cognito:groups']);
       if (amplifyUser) {
-        setUser(amplifyUser);
+        const currentUserSession = await Auth.userSession(amplifyUser);
+        const accessToken = currentUserSession.getAccessToken();
+        const userGroup = accessToken.payload['cognito:groups'][0];
+        setUserAuth({ user: amplifyUser, isLoading: false, cognitoGroup: userGroup });
       }
     } catch (error) {
       console.log(error);
-      setUser(null);
+      setUserAuth({ user: null, isLoading: false, cognitoGroup: null });
     }
   };
 
-  return <SessionContext.Provider value={user}>{children}</SessionContext.Provider>;
+  return <SessionContext.Provider value={userAuth}>{children}</SessionContext.Provider>;
 };
 
 export default SessionProvider;
