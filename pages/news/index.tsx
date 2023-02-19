@@ -7,6 +7,9 @@ const NewsPage: NextPageWithLayout = () => {
 
 export default NewsPage;
 
-NewsPage.getLayout = (page) => {
-  return <SidebarLayout pageTitle="News">{page}</SidebarLayout>;
+NewsPage.properties = {
+  pageAuth: { isAuthRequired: true, authLevel: 'Customers' },
+  getLayout: (page) => {
+    return <SidebarLayout pageTitle="News">{page}</SidebarLayout>;
+  },
 };

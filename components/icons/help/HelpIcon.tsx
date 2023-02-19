@@ -1,5 +1,5 @@
+import { ISvgIcon } from '@type/icons';
 import React from 'react';
-import { ISvgIcon } from '../../../types/icons';
 
 const HelpIcon: React.FC<ISvgIcon> = ({ width, height, isHighlighted = false }) => {
   return (

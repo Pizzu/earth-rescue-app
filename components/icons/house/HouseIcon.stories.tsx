@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ISvgIcon } from '@type/icons';
 import HouseIcon from './HouseIcon';
-import { ISvgIcon } from '../../../types/icons';
 import { mockHouseIconProps } from './HouseIcon.mocks';
 
 export default {

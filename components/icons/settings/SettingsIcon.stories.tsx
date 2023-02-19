@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ISvgIcon } from '../../../types/icons';
+import { ISvgIcon } from '@type/icons';
 import SettingsIcon from './SettingsIcon';
 import { mockSettingsIconProps } from './SettingsIcon.mocks';
 
