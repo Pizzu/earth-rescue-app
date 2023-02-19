@@ -14,7 +14,7 @@ import {
   TreesIcon,
   UserIcon,
 } from '@components/icons';
-import { Icon } from '../../../types/icons';
+import { Icon } from '@type/icons';
 
 export interface ISvgHandler extends Icon {
   width?: string;

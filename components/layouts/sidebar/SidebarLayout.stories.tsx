@@ -6,6 +6,7 @@ export default {
   title: 'layouts/SidebarLayout',
   component: SidebarLayout,
   argTypes: [],
+  parameters: { layout: 'fullscreen' },
 } as ComponentMeta<typeof SidebarLayout>;
 
 const Template: ComponentStory<typeof SidebarLayout> = (args) => {
