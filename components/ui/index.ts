@@ -9,6 +9,7 @@ export { default as ProductCard } from './card/product/ProductCard';
 export { default as Cart } from './cart/Cart';
 export { default as CartNumber } from './cart/number/CartNumber';
 export { default as Divider } from './divider/Divider';
+export { default as Loader } from './loader/Loader';
 export { default as Logo } from './logo/Logo';
 export { default as Navbar } from './navbar/Navbar';
 export { default as Searchbar } from './searchbar/Searchbar';
