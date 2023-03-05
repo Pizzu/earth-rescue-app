@@ -1,16 +1,16 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-earthrescueapp-dev-212333-authRole",
-      "UnauthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-dev-212333-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-dev-212333-authRole",
+      "AuthRoleName": "amplify-earthrescueapp-dev-182401-authRole",
+      "UnauthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-dev-182401-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-dev-182401-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-earthrescueapp-dev-212333-deployment",
-      "UnauthRoleName": "amplify-earthrescueapp-dev-212333-unauthRole",
-      "StackName": "amplify-earthrescueapp-dev-212333",
-      "StackId": "arn:aws:cloudformation:us-east-1:619341907570:stack/amplify-earthrescueapp-dev-212333/a428f510-9f49-11ed-9311-0acf25632f1d",
+      "DeploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
+      "UnauthRoleName": "amplify-earthrescueapp-dev-182401-unauthRole",
+      "StackName": "amplify-earthrescueapp-dev-182401",
+      "StackId": "arn:aws:cloudformation:us-east-1:619341907570:stack/amplify-earthrescueapp-dev-182401/e77fd310-bb82-11ed-a7a4-0e6f1606a689",
       "AmplifyAppId": "daqmxr6c62kxp",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-earthrescueapp-dev-212333-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-earthrescueapp-dev-182401-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -20,17 +20,47 @@
       "function": {
         "earthrescueapp8672bddfPostConfirmation": {
           "GROUP": "Customers",
-          "deploymentBucketName": "amplify-earthrescueapp-dev-212333-deployment",
+          "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
           "s3Key": "amplify-builds/earthrescueapp8672bddfPostConfirmation-6654424664454b676a6f-build.zip"
         },
         "AdminQueriesfc1ee69e": {
-          "deploymentBucketName": "amplify-earthrescueapp-dev-212333-deployment",
+          "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
           "s3Key": "amplify-builds/AdminQueriesfc1ee69e-62344d6e4e5333734c44-build.zip"
         }
       },
       "api": {
-        "earthrescueapi": {},
-        "AdminQueries": {}
+        "AdminQueries": {},
+        "earthrescueapi": {}
+      }
+    }
+  },
+  "uat": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-earthrescueapp-uat-191143-authRole",
+      "UnauthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-uat-191143-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-uat-191143-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-earthrescueapp-uat-191143-deployment",
+      "UnauthRoleName": "amplify-earthrescueapp-uat-191143-unauthRole",
+      "StackName": "amplify-earthrescueapp-uat-191143",
+      "StackId": "arn:aws:cloudformation:us-east-1:619341907570:stack/amplify-earthrescueapp-uat-191143/6e32c430-a32d-11ed-bd6d-125c0be1ace5",
+      "AmplifyAppId": "daqmxr6c62kxp",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-earthrescueapp-uat-191143-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "earthrescueapp8672bddf": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "AdminQueriesfc1ee69e": {
+          "deploymentBucketName": "amplify-earthrescueapp-uat-191143-deployment",
+          "s3Key": "amplify-builds/AdminQueriesfc1ee69e-62344d6e4e5333734c44-build.zip"
+        },
+        "earthrescueapp8672bddfPostConfirmation": {
+          "deploymentBucketName": "amplify-earthrescueapp-uat-191143-deployment",
+          "s3Key": "amplify-builds/earthrescueapp8672bddfPostConfirmation-6654424664454b676a6f-build.zip"
+        }
       }
     }
   }

@@ -2,16 +2,26 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateBlogInput = {
+export type CreateTreeInput = {
   id?: string | null,
+  image: string,
   name: string,
+  description: string,
+  price: number,
+  meaning: string,
+  consume: string,
 };
 
-export type ModelBlogConditionInput = {
+export type ModelTreeConditionInput = {
+  image?: ModelStringInput | null,
   name?: ModelStringInput | null,
-  and?: Array< ModelBlogConditionInput | null > | null,
-  or?: Array< ModelBlogConditionInput | null > | null,
-  not?: ModelBlogConditionInput | null,
+  description?: ModelStringInput | null,
+  price?: ModelIntInput | null,
+  meaning?: ModelStringInput | null,
+  consume?: ModelStringInput | null,
+  and?: Array< ModelTreeConditionInput | null > | null,
+  or?: Array< ModelTreeConditionInput | null > | null,
+  not?: ModelTreeConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -54,72 +64,56 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type Blog = {
-  __typename: "Blog",
+export type ModelIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type Tree = {
+  __typename: "Tree",
   id: string,
+  image: string,
   name: string,
-  posts?: ModelPostConnection | null,
+  description: string,
+  price: number,
+  meaning: string,
+  consume: string,
   createdAt: string,
   updatedAt: string,
 };
 
-export type ModelPostConnection = {
-  __typename: "ModelPostConnection",
-  items:  Array<Post | null >,
-  nextToken?: string | null,
-};
-
-export type Post = {
-  __typename: "Post",
+export type UpdateTreeInput = {
   id: string,
-  title: string,
-  subTitle?: string | null,
-  blog?: Blog | null,
-  comments?: ModelCommentConnection | null,
-  createdAt: string,
-  updatedAt: string,
-  blogPostsId?: string | null,
-};
-
-export type ModelCommentConnection = {
-  __typename: "ModelCommentConnection",
-  items:  Array<Comment | null >,
-  nextToken?: string | null,
-};
-
-export type Comment = {
-  __typename: "Comment",
-  id: string,
-  post?: Post | null,
-  content: string,
-  createdAt: string,
-  updatedAt: string,
-  postCommentsId?: string | null,
-};
-
-export type UpdateBlogInput = {
-  id: string,
+  image?: string | null,
   name?: string | null,
+  description?: string | null,
+  price?: number | null,
+  meaning?: string | null,
+  consume?: string | null,
 };
 
-export type DeleteBlogInput = {
+export type DeleteTreeInput = {
   id: string,
 };
 
-export type CreatePostInput = {
-  id?: string | null,
-  title: string,
-  subTitle?: string | null,
-  blogPostsId?: string | null,
-};
-
-export type ModelPostConditionInput = {
-  title?: ModelStringInput | null,
-  subTitle?: ModelStringInput | null,
-  and?: Array< ModelPostConditionInput | null > | null,
-  or?: Array< ModelPostConditionInput | null > | null,
-  not?: ModelPostConditionInput | null,
-  blogPostsId?: ModelIDInput | null,
+export type ModelTreeFilterInput = {
+  id?: ModelIDInput | null,
+  image?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  price?: ModelIntInput | null,
+  meaning?: ModelStringInput | null,
+  consume?: ModelStringInput | null,
+  and?: Array< ModelTreeFilterInput | null > | null,
+  or?: Array< ModelTreeFilterInput | null > | null,
+  not?: ModelTreeFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -138,79 +132,22 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type UpdatePostInput = {
-  id: string,
-  title?: string | null,
-  subTitle?: string | null,
-  blogPostsId?: string | null,
-};
-
-export type DeletePostInput = {
-  id: string,
-};
-
-export type CreateCommentInput = {
-  id?: string | null,
-  content: string,
-  postCommentsId?: string | null,
-};
-
-export type ModelCommentConditionInput = {
-  content?: ModelStringInput | null,
-  and?: Array< ModelCommentConditionInput | null > | null,
-  or?: Array< ModelCommentConditionInput | null > | null,
-  not?: ModelCommentConditionInput | null,
-  postCommentsId?: ModelIDInput | null,
-};
-
-export type UpdateCommentInput = {
-  id: string,
-  content?: string | null,
-  postCommentsId?: string | null,
-};
-
-export type DeleteCommentInput = {
-  id: string,
-};
-
-export type ModelBlogFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  and?: Array< ModelBlogFilterInput | null > | null,
-  or?: Array< ModelBlogFilterInput | null > | null,
-  not?: ModelBlogFilterInput | null,
-};
-
-export type ModelBlogConnection = {
-  __typename: "ModelBlogConnection",
-  items:  Array<Blog | null >,
+export type ModelTreeConnection = {
+  __typename: "ModelTreeConnection",
+  items:  Array<Tree | null >,
   nextToken?: string | null,
 };
 
-export type ModelPostFilterInput = {
-  id?: ModelIDInput | null,
-  title?: ModelStringInput | null,
-  subTitle?: ModelStringInput | null,
-  and?: Array< ModelPostFilterInput | null > | null,
-  or?: Array< ModelPostFilterInput | null > | null,
-  not?: ModelPostFilterInput | null,
-  blogPostsId?: ModelIDInput | null,
-};
-
-export type ModelCommentFilterInput = {
-  id?: ModelIDInput | null,
-  content?: ModelStringInput | null,
-  and?: Array< ModelCommentFilterInput | null > | null,
-  or?: Array< ModelCommentFilterInput | null > | null,
-  not?: ModelCommentFilterInput | null,
-  postCommentsId?: ModelIDInput | null,
-};
-
-export type ModelSubscriptionBlogFilterInput = {
+export type ModelSubscriptionTreeFilterInput = {
   id?: ModelSubscriptionIDInput | null,
+  image?: ModelSubscriptionStringInput | null,
   name?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionBlogFilterInput | null > | null,
-  or?: Array< ModelSubscriptionBlogFilterInput | null > | null,
+  description?: ModelSubscriptionStringInput | null,
+  price?: ModelSubscriptionIntInput | null,
+  meaning?: ModelSubscriptionStringInput | null,
+  consume?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionTreeFilterInput | null > | null,
+  or?: Array< ModelSubscriptionTreeFilterInput | null > | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -243,377 +180,115 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
-export type ModelSubscriptionPostFilterInput = {
-  id?: ModelSubscriptionIDInput | null,
-  title?: ModelSubscriptionStringInput | null,
-  subTitle?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionPostFilterInput | null > | null,
-  or?: Array< ModelSubscriptionPostFilterInput | null > | null,
+export type ModelSubscriptionIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  in?: Array< number | null > | null,
+  notIn?: Array< number | null > | null,
 };
 
-export type ModelSubscriptionCommentFilterInput = {
-  id?: ModelSubscriptionIDInput | null,
-  content?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionCommentFilterInput | null > | null,
-  or?: Array< ModelSubscriptionCommentFilterInput | null > | null,
+export type CreateTreeMutationVariables = {
+  input: CreateTreeInput,
+  condition?: ModelTreeConditionInput | null,
 };
 
-export type CreateBlogMutationVariables = {
-  input: CreateBlogInput,
-  condition?: ModelBlogConditionInput | null,
-};
-
-export type CreateBlogMutation = {
-  createBlog?:  {
-    __typename: "Blog",
+export type CreateTreeMutation = {
+  createTree?:  {
+    __typename: "Tree",
     id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateBlogMutationVariables = {
-  input: UpdateBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type UpdateTreeMutationVariables = {
+  input: UpdateTreeInput,
+  condition?: ModelTreeConditionInput | null,
 };
 
-export type UpdateBlogMutation = {
-  updateBlog?:  {
-    __typename: "Blog",
+export type UpdateTreeMutation = {
+  updateTree?:  {
+    __typename: "Tree",
     id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteBlogMutationVariables = {
-  input: DeleteBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type DeleteTreeMutationVariables = {
+  input: DeleteTreeInput,
+  condition?: ModelTreeConditionInput | null,
 };
 
-export type DeleteBlogMutation = {
-  deleteBlog?:  {
-    __typename: "Blog",
+export type DeleteTreeMutation = {
+  deleteTree?:  {
+    __typename: "Tree",
     id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type CreatePostMutationVariables = {
-  input: CreatePostInput,
-  condition?: ModelPostConditionInput | null,
-};
-
-export type CreatePostMutation = {
-  createPost?:  {
-    __typename: "Post",
-    id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type UpdatePostMutationVariables = {
-  input: UpdatePostInput,
-  condition?: ModelPostConditionInput | null,
-};
-
-export type UpdatePostMutation = {
-  updatePost?:  {
-    __typename: "Post",
-    id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type DeletePostMutationVariables = {
-  input: DeletePostInput,
-  condition?: ModelPostConditionInput | null,
-};
-
-export type DeletePostMutation = {
-  deletePost?:  {
-    __typename: "Post",
-    id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type CreateCommentMutationVariables = {
-  input: CreateCommentInput,
-  condition?: ModelCommentConditionInput | null,
-};
-
-export type CreateCommentMutation = {
-  createComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
-  } | null,
-};
-
-export type UpdateCommentMutationVariables = {
-  input: UpdateCommentInput,
-  condition?: ModelCommentConditionInput | null,
-};
-
-export type UpdateCommentMutation = {
-  updateComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
-  } | null,
-};
-
-export type DeleteCommentMutationVariables = {
-  input: DeleteCommentInput,
-  condition?: ModelCommentConditionInput | null,
-};
-
-export type DeleteCommentMutation = {
-  deleteComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
-  } | null,
-};
-
-export type GetBlogQueryVariables = {
+export type GetTreeQueryVariables = {
   id: string,
 };
 
-export type GetBlogQuery = {
-  getBlog?:  {
-    __typename: "Blog",
+export type GetTreeQuery = {
+  getTree?:  {
+    __typename: "Tree",
     id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type ListBlogsQueryVariables = {
-  filter?: ModelBlogFilterInput | null,
+export type ListTreesQueryVariables = {
+  filter?: ModelTreeFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListBlogsQuery = {
-  listBlogs?:  {
-    __typename: "ModelBlogConnection",
+export type ListTreesQuery = {
+  listTrees?:  {
+    __typename: "ModelTreeConnection",
     items:  Array< {
-      __typename: "Blog",
+      __typename: "Tree",
       id: string,
+      image: string,
       name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
+      description: string,
+      price: number,
+      meaning: string,
+      consume: string,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -621,442 +296,59 @@ export type ListBlogsQuery = {
   } | null,
 };
 
-export type GetPostQueryVariables = {
-  id: string,
+export type OnCreateTreeSubscriptionVariables = {
+  filter?: ModelSubscriptionTreeFilterInput | null,
 };
 
-export type GetPostQuery = {
-  getPost?:  {
-    __typename: "Post",
+export type OnCreateTreeSubscription = {
+  onCreateTree?:  {
+    __typename: "Tree",
     id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type ListPostsQueryVariables = {
-  filter?: ModelPostFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListPostsQuery = {
-  listPosts?:  {
-    __typename: "ModelPostConnection",
-    items:  Array< {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetCommentQueryVariables = {
-  id: string,
-};
-
-export type GetCommentQuery = {
-  getComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
-  } | null,
-};
-
-export type ListCommentsQueryVariables = {
-  filter?: ModelCommentFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListCommentsQuery = {
-  listComments?:  {
-    __typename: "ModelCommentConnection",
-    items:  Array< {
-      __typename: "Comment",
-      id: string,
-      post?:  {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null,
-      content: string,
-      createdAt: string,
-      updatedAt: string,
-      postCommentsId?: string | null,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type OnCreateBlogSubscriptionVariables = {
-  filter?: ModelSubscriptionBlogFilterInput | null,
-};
-
-export type OnCreateBlogSubscription = {
-  onCreateBlog?:  {
-    __typename: "Blog",
-    id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnUpdateBlogSubscriptionVariables = {
-  filter?: ModelSubscriptionBlogFilterInput | null,
+export type OnUpdateTreeSubscriptionVariables = {
+  filter?: ModelSubscriptionTreeFilterInput | null,
 };
 
-export type OnUpdateBlogSubscription = {
-  onUpdateBlog?:  {
-    __typename: "Blog",
+export type OnUpdateTreeSubscription = {
+  onUpdateTree?:  {
+    __typename: "Tree",
     id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeleteBlogSubscriptionVariables = {
-  filter?: ModelSubscriptionBlogFilterInput | null,
+export type OnDeleteTreeSubscriptionVariables = {
+  filter?: ModelSubscriptionTreeFilterInput | null,
 };
 
-export type OnDeleteBlogSubscription = {
-  onDeleteBlog?:  {
-    __typename: "Blog",
+export type OnDeleteTreeSubscription = {
+  onDeleteTree?:  {
+    __typename: "Tree",
     id: string,
+    image: string,
     name: string,
-    posts?:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-        subTitle?: string | null,
-        createdAt: string,
-        updatedAt: string,
-        blogPostsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    description: string,
+    price: number,
+    meaning: string,
+    consume: string,
     createdAt: string,
     updatedAt: string,
-  } | null,
-};
-
-export type OnCreatePostSubscriptionVariables = {
-  filter?: ModelSubscriptionPostFilterInput | null,
-};
-
-export type OnCreatePostSubscription = {
-  onCreatePost?:  {
-    __typename: "Post",
-    id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type OnUpdatePostSubscriptionVariables = {
-  filter?: ModelSubscriptionPostFilterInput | null,
-};
-
-export type OnUpdatePostSubscription = {
-  onUpdatePost?:  {
-    __typename: "Post",
-    id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type OnDeletePostSubscriptionVariables = {
-  filter?: ModelSubscriptionPostFilterInput | null,
-};
-
-export type OnDeletePostSubscription = {
-  onDeletePost?:  {
-    __typename: "Post",
-    id: string,
-    title: string,
-    subTitle?: string | null,
-    blog?:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts?:  {
-        __typename: "ModelPostConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-        postCommentsId?: string | null,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    blogPostsId?: string | null,
-  } | null,
-};
-
-export type OnCreateCommentSubscriptionVariables = {
-  filter?: ModelSubscriptionCommentFilterInput | null,
-};
-
-export type OnCreateCommentSubscription = {
-  onCreateComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
-  } | null,
-};
-
-export type OnUpdateCommentSubscriptionVariables = {
-  filter?: ModelSubscriptionCommentFilterInput | null,
-};
-
-export type OnUpdateCommentSubscription = {
-  onUpdateComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
-  } | null,
-};
-
-export type OnDeleteCommentSubscriptionVariables = {
-  filter?: ModelSubscriptionCommentFilterInput | null,
-};
-
-export type OnDeleteCommentSubscription = {
-  onDeleteComment?:  {
-    __typename: "Comment",
-    id: string,
-    post?:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      subTitle?: string | null,
-      blog?:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      blogPostsId?: string | null,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    postCommentsId?: string | null,
   } | null,
 };
