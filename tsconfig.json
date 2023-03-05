@@ -22,7 +22,8 @@
       "@hooks/*": ["hooks/*"],
       "@providers/*": ["providers/*"],
       "@lib/*": ["lib/*"],
-      "@type/*": ["type/*"]
+      "@type/*": ["type/*"],
+      "@store/*": ["store/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
