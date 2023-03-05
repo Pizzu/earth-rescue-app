@@ -1,9 +1,12 @@
 import { AccountNavMenuItem, Divider } from '@components/ui';
+import { useAuthStore } from '@store/index';
 import { Auth } from 'aws-amplify';
 
 const AccountNavMenu: React.FC = () => {
+  const setIsAuthLoading = useAuthStore((state) => state.setIsAuthLoading);
   const logoutUser = async () => {
     try {
+      setIsAuthLoading(false);
       await Auth.signOut();
     } catch (error) {
       console.log('error signing out: ', error);

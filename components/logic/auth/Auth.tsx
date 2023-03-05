@@ -1,3 +1,4 @@
+import { Loader } from '@components/ui';
 import { useSession } from '@providers/SessionProvider';
 import { IPageAuthorization } from '@type/auth';
 import { useRouter } from 'next/router';
@@ -22,8 +23,6 @@ const Auth: React.FC<IAuth> = ({ pageAuth, children }) => {
   const router = useRouter();
   const [showPage, setShowPage] = useState(false);
 
-  console.log('Session', session);
-
   useEffect(() => {
     const checkPageAuth = () => {
       if (pageAuth?.isAuthRequired) {
@@ -39,7 +38,15 @@ const Auth: React.FC<IAuth> = ({ pageAuth, children }) => {
           router.push('/signin');
         }
       } else {
-        setShowPage(true);
+        if (session?.user) {
+          if (router.pathname === '/signin' || router.pathname === '/signup') {
+            router.push('/');
+          } else {
+            setShowPage(true);
+          }
+        } else {
+          setShowPage(true);
+        }
       }
     };
 
@@ -49,11 +56,10 @@ const Auth: React.FC<IAuth> = ({ pageAuth, children }) => {
   }, [pageAuth, router, session]);
 
   if (!session || (session && session?.isLoading)) {
-    return <>Loading...</>;
+    return <Loader />;
   } else if (showPage) {
     return <>{children}</>;
   }
-
   return <></>;
 };
 

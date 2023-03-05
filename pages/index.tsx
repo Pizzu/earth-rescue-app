@@ -1,11 +1,14 @@
 import { SidebarLayout } from '@components/layouts';
 import { BodyText, HeadingText } from '@components/typography';
 import { Card, ProductCard } from '@components/ui';
+import { useAuthStore } from '@store/index';
 // import { withSSRContext } from 'aws-amplify';
 // import { GetServerSideProps } from 'next';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
+  const isLoading = useAuthStore((state) => state.isAuthLoading);
+  console.log(isLoading);
   return (
     <>
       <section>
