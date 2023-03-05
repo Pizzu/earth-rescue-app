@@ -17,7 +17,7 @@ const SessionProvider: React.FC<ISessionProvider> = ({ children }) => {
 
   useEffect(() => {
     const removeHubListener = Hub.listen('auth', () => {
-      console.log('Listerner triggered');
+      console.log('Listener triggered');
       checkUserAuth();
     });
 
