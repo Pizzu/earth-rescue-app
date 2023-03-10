@@ -5,7 +5,7 @@ const productCard: IProductCard = {
   price: 28.9,
   image: '/avocado.jpg',
   meaning: 'Creativity',
-  consume: 500,
+  consume: '500',
 };
 
 export const mockProductCardProps = {
