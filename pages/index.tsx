@@ -2,8 +2,6 @@ import { SidebarLayout } from '@components/layouts';
 import { BodyText, HeadingText } from '@components/typography';
 import { Card, CardList, ProductCard } from '@components/ui';
 import { useTrees } from '@hooks/useTrees';
-// import { withSSRContext } from 'aws-amplify';
-// import { GetServerSideProps } from 'next';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
@@ -65,26 +63,6 @@ const Home: NextPageWithLayout = () => {
 };
 
 export default Home;
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const { Auth } = withSSRContext(context);
-//   try {
-//     await Auth.currentAuthenticatedUser();
-//   } catch (error) {
-//     return {
-//       redirect: {
-//         destination: '/signup',
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       session: false,
-//     },
-//   };
-// };
 
 Home.properties = {
   pageAuth: { isAuthRequired: true, authLevel: 'Customers' },
