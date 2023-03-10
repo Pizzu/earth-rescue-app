@@ -1,14 +1,16 @@
 import { SidebarLayout } from '@components/layouts';
 import { BodyText, HeadingText } from '@components/typography';
-import { Card, ProductCard } from '@components/ui';
-import { useAuthStore } from '@store/index';
+import { Card, CardList, ProductCard } from '@components/ui';
+import { useTrees } from '@hooks/useTrees';
 // import { withSSRContext } from 'aws-amplify';
 // import { GetServerSideProps } from 'next';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
-  const isLoading = useAuthStore((state) => state.isAuthLoading);
-  console.log(isLoading);
+  const { treeList, loading } = useTrees();
+
+  console.log(treeList, loading);
+
   return (
     <>
       <section>
@@ -17,7 +19,7 @@ const Home: NextPageWithLayout = () => {
             <Card background="bg-neutral-100">
               <div className="p-8 flex flex-col gap-2">
                 <HeadingText elementTag="h2" type="text-headingTwo">
-                  This is a card
+                  Heading card
                 </HeadingText>
                 <BodyText type="text-bodyDefault">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto quasi cupiditate doloremque voluptas illum,
@@ -43,10 +45,19 @@ const Home: NextPageWithLayout = () => {
       </section>
       <section className="mt-8">
         <div className="grid grid-cols-4 gap-8 items-stretch">
-          <ProductCard title={'Avocado'} price={28.9} image={'/avocado.jpg'} meaning={'Creativity'} consume={500} />
-          <ProductCard title={'Coffee'} price={22.9} image={'/coffee.jpg'} meaning={'Energy'} consume={50} />
-          <ProductCard title={'Baobab'} price={79.9} image={'/baobab.jpg'} meaning={'Life'} consume={3000} />
-          <ProductCard title={'Cocoa'} price={16.9} image={'/cocoa.jpg'} meaning={'Creativity'} consume={55} />
+          <CardList
+            list={treeList}
+            render={(tree) => (
+              <ProductCard
+                key={tree.id}
+                title={tree.name}
+                price={tree.price}
+                image={tree.image}
+                meaning={tree.meaning}
+                consume={tree.consume}
+              />
+            )}
+          />
         </div>
       </section>
     </>

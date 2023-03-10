@@ -23,7 +23,8 @@
       "@providers/*": ["providers/*"],
       "@lib/*": ["lib/*"],
       "@type/*": ["type/*"],
-      "@store/*": ["store/*"]
+      "@store/*": ["store/*"],
+      "@query/*": ["query/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

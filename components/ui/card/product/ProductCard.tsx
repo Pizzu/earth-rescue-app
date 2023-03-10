@@ -7,7 +7,7 @@ export interface IProductCard {
   price: number;
   image: string;
   meaning: string;
-  consume: number;
+  consume: string;
 }
 
 const ProductCard: React.FC<IProductCard> = ({ title, price, image, meaning, consume }) => {
