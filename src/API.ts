@@ -9,16 +9,16 @@ export type CreateTreeInput = {
   description: string,
   price: number,
   meaning: string,
-  consume: string,
+  consume: number,
 };
 
 export type ModelTreeConditionInput = {
   image?: ModelStringInput | null,
   name?: ModelStringInput | null,
   description?: ModelStringInput | null,
-  price?: ModelIntInput | null,
+  price?: ModelFloatInput | null,
   meaning?: ModelStringInput | null,
-  consume?: ModelStringInput | null,
+  consume?: ModelIntInput | null,
   and?: Array< ModelTreeConditionInput | null > | null,
   or?: Array< ModelTreeConditionInput | null > | null,
   not?: ModelTreeConditionInput | null,
@@ -64,6 +64,18 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelFloatInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type ModelIntInput = {
   ne?: number | null,
   eq?: number | null,
@@ -84,7 +96,7 @@ export type Tree = {
   description: string,
   price: number,
   meaning: string,
-  consume: string,
+  consume: number,
   createdAt: string,
   updatedAt: string,
 };
@@ -96,7 +108,7 @@ export type UpdateTreeInput = {
   description?: string | null,
   price?: number | null,
   meaning?: string | null,
-  consume?: string | null,
+  consume?: number | null,
 };
 
 export type DeleteTreeInput = {
@@ -108,9 +120,9 @@ export type ModelTreeFilterInput = {
   image?: ModelStringInput | null,
   name?: ModelStringInput | null,
   description?: ModelStringInput | null,
-  price?: ModelIntInput | null,
+  price?: ModelFloatInput | null,
   meaning?: ModelStringInput | null,
-  consume?: ModelStringInput | null,
+  consume?: ModelIntInput | null,
   and?: Array< ModelTreeFilterInput | null > | null,
   or?: Array< ModelTreeFilterInput | null > | null,
   not?: ModelTreeFilterInput | null,
@@ -143,9 +155,9 @@ export type ModelSubscriptionTreeFilterInput = {
   image?: ModelSubscriptionStringInput | null,
   name?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
-  price?: ModelSubscriptionIntInput | null,
+  price?: ModelSubscriptionFloatInput | null,
   meaning?: ModelSubscriptionStringInput | null,
-  consume?: ModelSubscriptionStringInput | null,
+  consume?: ModelSubscriptionIntInput | null,
   and?: Array< ModelSubscriptionTreeFilterInput | null > | null,
   or?: Array< ModelSubscriptionTreeFilterInput | null > | null,
 };
@@ -180,6 +192,18 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type ModelSubscriptionFloatInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  in?: Array< number | null > | null,
+  notIn?: Array< number | null > | null,
+};
+
 export type ModelSubscriptionIntInput = {
   ne?: number | null,
   eq?: number | null,
@@ -206,7 +230,7 @@ export type CreateTreeMutation = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -226,7 +250,7 @@ export type UpdateTreeMutation = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -246,7 +270,7 @@ export type DeleteTreeMutation = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -265,7 +289,7 @@ export type GetTreeQuery = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -288,7 +312,7 @@ export type ListTreesQuery = {
       description: string,
       price: number,
       meaning: string,
-      consume: string,
+      consume: number,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -309,7 +333,7 @@ export type OnCreateTreeSubscription = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -328,7 +352,7 @@ export type OnUpdateTreeSubscription = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -347,7 +371,7 @@ export type OnDeleteTreeSubscription = {
     description: string,
     price: number,
     meaning: string,
-    consume: string,
+    consume: number,
     createdAt: string,
     updatedAt: string,
   } | null,
