@@ -1,14 +1,44 @@
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import { SidebarLayout } from '@components/layouts';
 import { BodyText, HeadingText } from '@components/typography';
 import { Button, Card, Input } from '@components/ui';
 import { NextPageWithLayout } from '@pages/_app';
 import { ITreeForm } from '@type/forms';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { useMutation, useQueryClient } from 'react-query';
+import { CreateTreeMutation } from 'src/API';
+import { createTree } from 'src/graphql/mutations';
 
 const CreateTreePage: NextPageWithLayout = () => {
   const methods = useForm<ITreeForm>();
+  const queryClient = useQueryClient();
+
+  const createTreeProduct = async (data: ITreeForm) => {
+    const result = await API.graphql<GraphQLQuery<CreateTreeMutation>>({
+      query: createTree,
+      variables: {
+        input: {
+          ...data,
+          image:
+            'https://images.unsplash.com/photo-1678491453160-adba1d738cd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1828&q=80',
+        },
+      },
+      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+    });
+    return result;
+  };
+
+  const addTreeMutation = useMutation(createTreeProduct, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('tree');
+    },
+  });
+
   const onSubmit: SubmitHandler<ITreeForm> = async (data) => {
-    console.log(data);
+    console.log(data.name);
+    const paylaod = { ...data, consume: parseInt(data.consume.toString()), price: parseFloat(data.price.toString()) };
+    console.log(paylaod);
+    addTreeMutation.mutate(paylaod);
   };
 
   return (

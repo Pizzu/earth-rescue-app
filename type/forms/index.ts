@@ -10,6 +10,10 @@ export interface ISigninInput {
 }
 
 export interface ITreeForm {
-  email: string;
-  password: string;
+  name: string;
+  description: string;
+  consume: number;
+  image: string;
+  price: number;
+  meaning: string;
 }
