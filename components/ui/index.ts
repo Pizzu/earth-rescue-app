@@ -6,6 +6,7 @@ export { default as Avatar } from './avatar/Avatar';
 export { default as Button } from './button/Button';
 export { default as Card } from './card/Card';
 export { default as CardList } from './card/list/CardList';
+export { default as LoadingProductCard } from './card/loading/LoadingProductCard';
 export { default as ProductCard } from './card/product/ProductCard';
 export { default as Cart } from './cart/Cart';
 export { default as CartNumber } from './cart/number/CartNumber';

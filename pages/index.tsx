@@ -44,6 +44,7 @@ const Home: NextPageWithLayout = () => {
       <section className="mt-8">
         <div className="grid grid-cols-4 gap-8 items-stretch">
           <CardList
+            loading={loading}
             list={treeList}
             render={(tree) => (
               <ProductCard
