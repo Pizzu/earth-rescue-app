@@ -18,7 +18,7 @@ const ProductCard: React.FC<IProductCard> = ({ title, price, image, meaning, con
       <div className="relative w-full h-60 overflow-clip rounded-br-3xl">
         <div className="h-60"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-neutral-800 opacity-20 z-50"></div>
-        <Image className="object-cover" src={image} alt="Profile image" layout="fill" />
+        <Image className="object-cover" src={image} alt="Profile image" layout="fill" priority={true} />
       </div>
       <div className="py-5 px-4">
         <div className="flex justify-between items-start">

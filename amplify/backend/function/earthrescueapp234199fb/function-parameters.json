@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "Tree:@model(appsync)": [
+        "create"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "secretNames": [
+    "stripe_secret_key"
+  ]
+}

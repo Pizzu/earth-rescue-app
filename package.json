@@ -15,12 +15,15 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
+    "@stripe/stripe-js": "^1.48.0",
     "aws-amplify": "^5.0.11",
     "framer-motion": "^8.0.1",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.0",
+    "react-query": "^3.39.3",
+    "stripe": "^11.14.0",
     "zustand": "^4.3.5"
   },
   "devDependencies": {

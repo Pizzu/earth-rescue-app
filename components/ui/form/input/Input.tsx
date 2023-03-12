@@ -7,9 +7,10 @@ export interface IInput {
   type: HTMLInputTypeAttribute | undefined;
   placeholder?: string | undefined;
   pattern?: string | undefined;
+  isFullWidth?: boolean;
 }
 
-const Input: React.FC<IInput> = ({ label, keyInput, placeholder, type }) => {
+const Input: React.FC<IInput> = ({ label, keyInput, placeholder, type, isFullWidth = false }) => {
   const { register } = useFormContext();
   return (
     <>
@@ -19,7 +20,11 @@ const Input: React.FC<IInput> = ({ label, keyInput, placeholder, type }) => {
       <input
         type={type}
         id={keyInput}
-        className="block py-4 pl-8 pr-8 w-80 h-full text-200 font-medium text-neutral-800 bg-neutral-100 rounded-full border-0.06 placeholder:text-neutral-500 border-neutral-500 focus:ring-primaryGreen focus:border-primaryGreen"
+        className={`block py-4 pl-8 pr-8 ${
+          isFullWidth ? 'w-full' : 'w-80'
+        } h-full text-200 font-medium text-neutral-800 bg-neutral-100 rounded-full border-0.06 placeholder:text-neutral-500 border-neutral-500 focus:ring-primaryGreen focus:border-primaryGreen ${
+          type === 'file' && 'focus:outline-primaryGreen'
+        }`}
         placeholder={placeholder ? placeholder : 'Placeholder'}
         required={true}
         {...register(keyInput)}
