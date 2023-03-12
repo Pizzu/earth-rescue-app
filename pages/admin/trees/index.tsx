@@ -1,31 +1,18 @@
-import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import { SidebarLayout } from '@components/layouts';
 import { BodyText, HeadingText } from '@components/typography';
 import { Button, Card, Input } from '@components/ui';
 import { NextPageWithLayout } from '@pages/_app';
-import { ITreeForm, ITreePayload } from '@type/forms';
+import { createTreeProduct } from '@query/trees';
+import { ITreeForm } from '@type/forms';
 import { Storage } from 'aws-amplify';
 import { useRouter } from 'next/router';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
-import { CreateTreeMutation } from 'src/API';
-import { createTree } from 'src/graphql/mutations';
 
 const CreateTreePage: NextPageWithLayout = () => {
   const methods = useForm<ITreeForm>();
   const queryClient = useQueryClient();
   const router = useRouter();
-
-  const createTreeProduct = async (data: ITreePayload) => {
-    const result = await API.graphql<GraphQLQuery<CreateTreeMutation>>({
-      query: createTree,
-      variables: {
-        input: data,
-      },
-      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-    });
-    return result;
-  };
 
   const addTreeMutation = useMutation(createTreeProduct, {
     onSuccess: async () => {
