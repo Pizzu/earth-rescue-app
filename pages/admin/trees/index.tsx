@@ -3,7 +3,9 @@ import { SidebarLayout } from '@components/layouts';
 import { BodyText, HeadingText } from '@components/typography';
 import { Button, Card, Input } from '@components/ui';
 import { NextPageWithLayout } from '@pages/_app';
-import { ITreeForm } from '@type/forms';
+import { ITreeForm, ITreePayload } from '@type/forms';
+import { Storage } from 'aws-amplify';
+import { useRouter } from 'next/router';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
 import { CreateTreeMutation } from 'src/API';
@@ -12,16 +14,13 @@ import { createTree } from 'src/graphql/mutations';
 const CreateTreePage: NextPageWithLayout = () => {
   const methods = useForm<ITreeForm>();
   const queryClient = useQueryClient();
+  const router = useRouter();
 
-  const createTreeProduct = async (data: ITreeForm) => {
+  const createTreeProduct = async (data: ITreePayload) => {
     const result = await API.graphql<GraphQLQuery<CreateTreeMutation>>({
       query: createTree,
       variables: {
-        input: {
-          ...data,
-          image:
-            'https://images.unsplash.com/photo-1678491453160-adba1d738cd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1828&q=80',
-        },
+        input: data,
       },
       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
     });
@@ -29,14 +28,24 @@ const CreateTreePage: NextPageWithLayout = () => {
   };
 
   const addTreeMutation = useMutation(createTreeProduct, {
-    onSuccess: () => {
-      queryClient.invalidateQueries('tree');
+    onSuccess: async () => {
+      console.log('Success');
+      await queryClient.invalidateQueries('trees', { refetchInactive: true });
+      router.push('/');
     },
   });
 
   const onSubmit: SubmitHandler<ITreeForm> = async (data) => {
-    console.log(data.name);
-    const paylaod = { ...data, consume: parseInt(data.consume.toString()), price: parseFloat(data.price.toString()) };
+    const imageToUpload = data.image[0];
+    const storage = await Storage.put(imageToUpload.name, imageToUpload, { level: 'protected' });
+    const imageUrl = await Storage.get(storage.key, { level: 'protected' });
+    console.log('imageUrl', imageUrl);
+    const paylaod = {
+      ...data,
+      image: imageUrl,
+      consume: parseInt(data.consume.toString()),
+      price: parseFloat(data.price.toString()),
+    };
     console.log(paylaod);
     addTreeMutation.mutate(paylaod);
   };

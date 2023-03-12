@@ -31,6 +31,9 @@
       "api": {
         "AdminQueries": {},
         "earthrescueapi": {}
+      },
+      "storage": {
+        "earthrescuemedia": {}
       }
     }
   },

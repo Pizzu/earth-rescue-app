@@ -4,7 +4,7 @@ import { ListTreesQuery, Tree } from 'src/API';
 import { listTrees } from 'src/graphql/queries';
 
 export const useTrees = () => {
-  const { data, error, isLoading } = useQuery(['trees'], async () => {
+  const { data, error, isLoading } = useQuery('trees', async () => {
     const result = await API.graphql<GraphQLQuery<ListTreesQuery>>({
       query: listTrees,
       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,

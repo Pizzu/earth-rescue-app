@@ -172,5 +172,27 @@
         }
       ]
     }
+  },
+  "storage": {
+    "earthrescuemedia": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "earthrescueapp8672bddf"
+        },
+        {
+          "attributes": [
+            "AdministratorsGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
   }
 }

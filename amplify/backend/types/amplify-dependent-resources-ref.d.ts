@@ -41,5 +41,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "earthrescuemedia": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }
