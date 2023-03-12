@@ -10,6 +10,7 @@ export const onCreateTree = /* GraphQL */ `
       name
       description
       price
+      priceId
       meaning
       consume
       createdAt
@@ -25,6 +26,7 @@ export const onUpdateTree = /* GraphQL */ `
       name
       description
       price
+      priceId
       meaning
       consume
       createdAt
@@ -40,6 +42,7 @@ export const onDeleteTree = /* GraphQL */ `
       name
       description
       price
+      priceId
       meaning
       consume
       createdAt

@@ -125,6 +125,20 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "earthrescueapp234199fb": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "earthrescueapi"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "earthrescueapp8672bddfPostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -145,6 +159,30 @@
         {
           "category": "function",
           "resourceName": "AdminQueriesfc1ee69e"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueapp234199fb_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueapp234199fb"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueapp234199fb_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueapp234199fb"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueapp234199fb_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueapp234199fb"
         }
       ]
     },
