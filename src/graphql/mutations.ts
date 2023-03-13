@@ -16,6 +16,7 @@ export const createTree = /* GraphQL */ `
       priceId
       meaning
       consume
+      stripeId
       createdAt
       updatedAt
     }
@@ -35,6 +36,7 @@ export const updateTree = /* GraphQL */ `
       priceId
       meaning
       consume
+      stripeId
       createdAt
       updatedAt
     }
@@ -54,6 +56,7 @@ export const deleteTree = /* GraphQL */ `
       priceId
       meaning
       consume
+      stripeId
       createdAt
       updatedAt
     }

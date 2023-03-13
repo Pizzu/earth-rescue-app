@@ -10,4 +10,5 @@ type Tree @model @auth(rules: [{ allow: groups, groups: ["Administrators"] }, { 
   priceId: String
   meaning: String!
   consume: Int!
+  stripeId: String
 }

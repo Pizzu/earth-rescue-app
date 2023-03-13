@@ -1,5 +1,6 @@
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import { ITreePayload } from '@type/forms';
+import { ICreateStripeTreeResponse, ITreePayload } from '@type/forms';
+import { Auth } from 'aws-amplify';
 import { CreateTreeMutation, ListTreesQuery, Tree } from 'src/API';
 import { createTree } from 'src/graphql/mutations';
 import { listTrees } from 'src/graphql/queries';
@@ -13,12 +14,20 @@ export const getTrees = async () => {
 };
 
 export const createTreeProduct = async (data: ITreePayload) => {
-  const result = await API.graphql<GraphQLQuery<CreateTreeMutation>>({
+  const token = (await Auth.currentSession()).getIdToken().getJwtToken();
+  console.log(token);
+  const response: ICreateStripeTreeResponse = await API.post('earthRescueStripeApi', '/create-stripe-tree', {
+    // headers: {
+    //   Authorization: `Bearer ${token}`,
+    // },
+    body: data,
+  });
+  const graphqlResult = await API.graphql<GraphQLQuery<CreateTreeMutation>>({
     query: createTree,
     variables: {
-      input: data,
+      input: { ...data, priceId: response.result.priceId },
     },
     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
   });
-  return result;
+  return graphqlResult;
 };

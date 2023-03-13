@@ -27,15 +27,17 @@
           "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
           "s3Key": "amplify-builds/AdminQueriesfc1ee69e-62344d6e4e5333734c44-build.zip"
         },
-        "earthrescueapp234199fb": {
+        "earthrescueappstripe57832ec2": {
           "secretsPathAmplifyAppId": "daqmxr6c62kxp",
           "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
-          "s3Key": "amplify-builds/earthrescueapp234199fb-4342526a66562b464279-build.zip"
-        }
+          "s3Key": "amplify-builds/earthrescueappstripe57832ec2-334a45353232494d594b-build.zip"
+        },
+        "earthrescueapp234199fb": {}
       },
       "api": {
         "AdminQueries": {},
-        "earthrescueapi": {}
+        "earthrescueapi": {},
+        "earthRescueStripeApi": {}
       },
       "storage": {
         "earthrescuemedia": {}

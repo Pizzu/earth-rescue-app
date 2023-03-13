@@ -11,6 +11,7 @@ export type CreateTreeInput = {
   priceId?: string | null,
   meaning: string,
   consume: number,
+  stripeId?: string | null,
 };
 
 export type ModelTreeConditionInput = {
@@ -21,6 +22,7 @@ export type ModelTreeConditionInput = {
   priceId?: ModelStringInput | null,
   meaning?: ModelStringInput | null,
   consume?: ModelIntInput | null,
+  stripeId?: ModelStringInput | null,
   and?: Array< ModelTreeConditionInput | null > | null,
   or?: Array< ModelTreeConditionInput | null > | null,
   not?: ModelTreeConditionInput | null,
@@ -100,6 +102,7 @@ export type Tree = {
   priceId?: string | null,
   meaning: string,
   consume: number,
+  stripeId?: string | null,
   createdAt: string,
   updatedAt: string,
 };
@@ -113,6 +116,7 @@ export type UpdateTreeInput = {
   priceId?: string | null,
   meaning?: string | null,
   consume?: number | null,
+  stripeId?: string | null,
 };
 
 export type DeleteTreeInput = {
@@ -128,6 +132,7 @@ export type ModelTreeFilterInput = {
   priceId?: ModelStringInput | null,
   meaning?: ModelStringInput | null,
   consume?: ModelIntInput | null,
+  stripeId?: ModelStringInput | null,
   and?: Array< ModelTreeFilterInput | null > | null,
   or?: Array< ModelTreeFilterInput | null > | null,
   not?: ModelTreeFilterInput | null,
@@ -164,6 +169,7 @@ export type ModelSubscriptionTreeFilterInput = {
   priceId?: ModelSubscriptionStringInput | null,
   meaning?: ModelSubscriptionStringInput | null,
   consume?: ModelSubscriptionIntInput | null,
+  stripeId?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionTreeFilterInput | null > | null,
   or?: Array< ModelSubscriptionTreeFilterInput | null > | null,
 };
@@ -238,6 +244,7 @@ export type CreateTreeMutation = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -259,6 +266,7 @@ export type UpdateTreeMutation = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -280,6 +288,7 @@ export type DeleteTreeMutation = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -300,6 +309,7 @@ export type GetTreeQuery = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -324,6 +334,7 @@ export type ListTreesQuery = {
       priceId?: string | null,
       meaning: string,
       consume: number,
+      stripeId?: string | null,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -346,6 +357,7 @@ export type OnCreateTreeSubscription = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -366,6 +378,7 @@ export type OnUpdateTreeSubscription = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -386,6 +399,7 @@ export type OnDeleteTreeSubscription = {
     priceId?: string | null,
     meaning: string,
     consume: number,
+    stripeId?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,

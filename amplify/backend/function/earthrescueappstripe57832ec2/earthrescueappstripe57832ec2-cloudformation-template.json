@@ -16,14 +16,6 @@
     "s3Key": {
       "Type": "String"
     },
-    "apiearthrescueapiGraphQLAPIIdOutput": {
-      "Type": "String",
-      "Default": "apiearthrescueapiGraphQLAPIIdOutput"
-    },
-    "apiearthrescueapiGraphQLAPIEndpointOutput": {
-      "Type": "String",
-      "Default": "apiearthrescueapiGraphQLAPIEndpointOutput"
-    },
     "secretsPathAmplifyAppId": {
       "Type": "String"
     }
@@ -58,12 +50,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "earthrescueapp234199fb",
+            "earthrescueappstripe57832ec2",
             {
               "Fn::Join": [
                 "",
                 [
-                  "earthrescueapp234199fb",
+                  "earthrescueappstripe57832ec2",
                   "-",
                   {
                     "Ref": "env"
@@ -81,36 +73,7 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "API_EARTHRESCUEAPI_TREETABLE_NAME": {
-              "Fn::ImportValue": {
-                "Fn::Sub": "${apiearthrescueapiGraphQLAPIIdOutput}:GetAtt:TreeTable:Name"
-              }
-            },
-            "API_EARTHRESCUEAPI_TREETABLE_ARN": {
-              "Fn::Join": [
-                "",
-                [
-                  "arn:aws:dynamodb:",
-                  {
-                    "Ref": "AWS::Region"
-                  },
-                  ":",
-                  {
-                    "Ref": "AWS::AccountId"
-                  },
-                  ":table/",
-                  {
-                    "Fn::ImportValue": {
-                      "Fn::Sub": "${apiearthrescueapiGraphQLAPIIdOutput}:GetAtt:TreeTable:Name"
-                    }
-                  }
-                ]
-              ]
-            },
-            "API_EARTHRESCUEAPI_GRAPHQLAPIIDOUTPUT": {
-              "Ref": "apiearthrescueapiGraphQLAPIIdOutput"
-            },
-            "stripe_secret_key": {
+            "stripe_secret_key_test": {
               "Fn::Join": [
                 "",
                 [
@@ -124,11 +87,11 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "earthrescueapp234199fb"
+                        "functionName": "earthrescueappstripe57832ec2"
                       }
                     ]
                   },
-                  "stripe_secret_key"
+                  "stripe_secret_key_test"
                 ]
               ]
             }
@@ -151,12 +114,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "earthrescueappLambdaRole928f74ea",
+            "earthrescueappLambdaRole9b4d3c21",
             {
               "Fn::Join": [
                 "",
                 [
-                  "earthrescueappLambdaRole928f74ea",
+                  "earthrescueappLambdaRole9b4d3c21",
                   "-",
                   {
                     "Ref": "env"
@@ -227,134 +190,6 @@
         }
       }
     },
-    "AmplifyResourcesPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:Put*",
-                "dynamodb:Create*",
-                "dynamodb:BatchWriteItem"
-              ],
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:dynamodb:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":table/",
-                      {
-                        "Fn::ImportValue": {
-                          "Fn::Sub": "${apiearthrescueapiGraphQLAPIIdOutput}:GetAtt:TreeTable:Name"
-                        }
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:dynamodb:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":table/",
-                      {
-                        "Fn::ImportValue": {
-                          "Fn::Sub": "${apiearthrescueapiGraphQLAPIIdOutput}:GetAtt:TreeTable:Name"
-                        }
-                      },
-                      "/index/*"
-                    ]
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      }
-    },
-    "LambdaTriggerPolicyTree": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy-Tree",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:DescribeStream",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:ListStreams"
-              ],
-              "Resource": {
-                "Fn::ImportValue": {
-                  "Fn::Sub": "${apiearthrescueapiGraphQLAPIIdOutput}:GetAtt:TreeTable:StreamArn"
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
-    "LambdaEventSourceMappingTree": {
-      "Type": "AWS::Lambda::EventSourceMapping",
-      "DependsOn": [
-        "LambdaTriggerPolicyTree",
-        "LambdaExecutionRole"
-      ],
-      "Properties": {
-        "BatchSize": 100,
-        "Enabled": true,
-        "EventSourceArn": {
-          "Fn::ImportValue": {
-            "Fn::Sub": "${apiearthrescueapiGraphQLAPIIdOutput}:GetAtt:TreeTable:StreamArn"
-          }
-        },
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "LambdaFunction",
-            "Arn"
-          ]
-        },
-        "StartingPosition": "LATEST"
-      }
-    },
     "AmplifyFunctionSecretsPolicy": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
@@ -396,7 +231,7 @@
                           "env": {
                             "Ref": "env"
                           },
-                          "functionName": "earthrescueapp234199fb"
+                          "functionName": "earthrescueappstripe57832ec2"
                         }
                       ]
                     },

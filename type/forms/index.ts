@@ -16,6 +16,7 @@ export interface ITreeForm {
   image: FileList;
   price: number;
   meaning: string;
+  stripeId: string;
 }
 
 export interface ITreePayload {
@@ -24,5 +25,10 @@ export interface ITreePayload {
   consume: number;
   image: string;
   price: number;
+  priceId?: string;
   meaning: string;
+}
+
+export interface ICreateStripeTreeResponse {
+  result: { priceId: string };
 }

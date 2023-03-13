@@ -13,6 +13,7 @@ export const getTree = /* GraphQL */ `
       priceId
       meaning
       consume
+      stripeId
       createdAt
       updatedAt
     }
@@ -34,6 +35,7 @@ export const listTrees = /* GraphQL */ `
         priceId
         meaning
         consume
+        stripeId
         createdAt
         updatedAt
       }

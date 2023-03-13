@@ -8,6 +8,7 @@ import { Storage } from 'aws-amplify';
 import { useRouter } from 'next/router';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateTreePage: NextPageWithLayout = () => {
   const methods = useForm<ITreeForm>();
@@ -32,6 +33,7 @@ const CreateTreePage: NextPageWithLayout = () => {
       image: imageUrl,
       consume: parseInt(data.consume.toString()),
       price: parseFloat(data.price.toString()),
+      stripeId: uuidv4(),
     };
     console.log(paylaod);
     addTreeMutation.mutate(paylaod);
