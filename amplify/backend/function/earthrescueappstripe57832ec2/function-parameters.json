@@ -3,5 +3,15 @@
   "lambdaLayers": [],
   "secretNames": [
     "stripe_secret_key_test"
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "userPoolsId",
+      "environmentVariableName": "USER_POOLS_ID"
+    },
+    {
+      "cloudFormationParameterName": "clientId",
+      "environmentVariableName": "CLIENT_ID"
+    }
   ]
 }

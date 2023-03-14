@@ -5,7 +5,15 @@
       "name": "/create-stripe-tree",
       "lambdaFunction": "earthrescueappstripe57832ec2",
       "permissions": {
-        "setting": "open"
+        "groups": {
+          "Administrators": [
+            "create",
+            "read",
+            "update",
+            "delete"
+          ]
+        },
+        "setting": "private"
       }
     }
   }

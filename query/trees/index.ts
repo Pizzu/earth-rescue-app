@@ -15,11 +15,10 @@ export const getTrees = async () => {
 
 export const createTreeProduct = async (data: ITreePayload) => {
   const token = (await Auth.currentSession()).getIdToken().getJwtToken();
-  console.log(token);
   const response: ICreateStripeTreeResponse = await API.post('earthRescueStripeApi', '/create-stripe-tree', {
-    // headers: {
-    //   Authorization: `Bearer ${token}`,
-    // },
+    headers: {
+      Authorization: `${token}`,
+    },
     body: data,
   });
   const graphqlResult = await API.graphql<GraphQLQuery<CreateTreeMutation>>({

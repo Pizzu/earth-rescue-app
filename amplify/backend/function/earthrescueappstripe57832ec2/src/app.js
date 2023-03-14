@@ -27,6 +27,7 @@ See the License for the specific language governing permissions and limitations 
 Amplify Params - DO NOT EDIT */
 
 const aws = require('aws-sdk');
+const { CognitoJwtVerifier } = require('aws-jwt-verify');
 const express = require('express');
 const bodyParser = require('body-parser');
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
@@ -40,6 +41,13 @@ const getStripeKey = async () => {
     .promise();
   return Parameters[0].Value;
 };
+
+const jwtVerifier = CognitoJwtVerifier.create({
+  userPoolId: process.env.USER_POOLS_ID,
+  tokenUse: 'id',
+  clientId: process.env.CLIENT_ID,
+  groups: 'Administrators',
+});
 
 // declare a new express app
 const app = express();
@@ -58,11 +66,18 @@ app.use(function (req, res, next) {
  ****************************/
 
 app.post('/create-stripe-tree', async function (req, res) {
-  const stripeKey = await getStripeKey();
-  const stripe = require('stripe')(stripeKey);
-  const body = req.body;
-
   try {
+    // A valid JWT is expected in the HTTP header "authorization"
+    await jwtVerifier.verify(req.header('authorization'));
+  } catch (err) {
+    console.error(err);
+    return res.status(403).json({ statusCode: 403, message: 'Forbidden', error: true });
+  }
+  try {
+    const stripeKey = await getStripeKey();
+    const stripe = require('stripe')(stripeKey);
+    const body = req.body;
+
     const product = await stripe.products.create({
       name: body.name,
       description: body.description,
@@ -78,12 +93,21 @@ app.post('/create-stripe-tree', async function (req, res) {
     res.json({ message: 'Stripe Product Created!', url: req.url, result: { priceId: price.id } });
   } catch (error) {
     console.log('Something went wrong saving a product in stripe/dynamo', error);
+    res.status(500).json({ statusCode: 403, message: 'Stripe Product Created!', error: true });
   }
 });
 
-app.listen(3000, function () {
-  console.log('App started');
-});
+jwtVerifier
+  .hydrate()
+  .catch((err) => {
+    console.error(`Failed to hydrate JWT verifier: ${err}`);
+    process.exit(1);
+  })
+  .then(() =>
+    app.listen(3000, function () {
+      console.log('App started');
+    })
+  );
 
 // Export the app object. When executing the application local this does nothing. However,
 // to port it to AWS Lambda we will create a wrapper around that will load the app from

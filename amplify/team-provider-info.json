@@ -30,7 +30,9 @@
         "earthrescueappstripe57832ec2": {
           "secretsPathAmplifyAppId": "daqmxr6c62kxp",
           "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
-          "s3Key": "amplify-builds/earthrescueappstripe57832ec2-334a45353232494d594b-build.zip"
+          "s3Key": "amplify-builds/earthrescueappstripe57832ec2-42446578333270484c33-build.zip",
+          "userPoolsId": "us-east-1_QzV1o4WJo",
+          "clientId": "3rudotd1gup349vsiotlvuf0g8"
         },
         "earthrescueapp234199fb": {}
       },
