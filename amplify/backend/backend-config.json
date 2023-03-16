@@ -182,14 +182,6 @@
         }
       ]
     },
-    "AMPLIFY_function_earthrescueapp8672bddfPostConfirmation_GROUP": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescueapp8672bddfPostConfirmation"
-        }
-      ]
-    },
     "AMPLIFY_function_earthrescueapp8672bddfPostConfirmation_deploymentBucketName": {
       "usedBy": [
         {

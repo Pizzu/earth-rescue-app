@@ -18,46 +18,45 @@
         "userPoolGroups": {}
       },
       "function": {
-        "earthrescueapp8672bddfPostConfirmation": {
-          "GROUP": "Customers",
-          "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
-          "s3Key": "amplify-builds/earthrescueapp8672bddfPostConfirmation-6654424664454b676a6f-build.zip"
-        },
         "AdminQueriesfc1ee69e": {
           "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
           "s3Key": "amplify-builds/AdminQueriesfc1ee69e-62344d6e4e5333734c44-build.zip"
         },
+        "earthrescueapp8672bddfPostConfirmation": {
+          "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
+          "s3Key": "amplify-builds/earthrescueapp8672bddfPostConfirmation-6654424664454b676a6f-build.zip"
+        },
         "earthrescueappstripe57832ec2": {
-          "secretsPathAmplifyAppId": "daqmxr6c62kxp",
           "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
           "s3Key": "amplify-builds/earthrescueappstripe57832ec2-42446578333270484c33-build.zip",
-          "userPoolsId": "us-east-1_QzV1o4WJo",
-          "clientId": "3rudotd1gup349vsiotlvuf0g8"
+          "secretsPathAmplifyAppId": "daqmxr6c62kxp",
+          "clientId": "3rudotd1gup349vsiotlvuf0g8",
+          "userPoolsId": "us-east-1_QzV1o4WJo"
         },
-        "earthrescueapp234199fb": {}
-      },
-      "api": {
-        "AdminQueries": {},
-        "earthrescueapi": {},
-        "earthRescueStripeApi": {}
+        "earthrescueapp8672bddf": {}
       },
       "storage": {
         "earthrescuemedia": {}
+      },
+      "api": {
+        "AdminQueries": {},
+        "earthRescueStripeApi": {},
+        "earthrescueapi": {}
       }
     }
   },
   "uat": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-earthrescueapp-uat-191143-authRole",
-      "UnauthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-uat-191143-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-uat-191143-authRole",
+      "AuthRoleName": "amplify-earthrescueapp-uat-230745-authRole",
+      "UnauthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-uat-230745-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::619341907570:role/amplify-earthrescueapp-uat-230745-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-earthrescueapp-uat-191143-deployment",
-      "UnauthRoleName": "amplify-earthrescueapp-uat-191143-unauthRole",
-      "StackName": "amplify-earthrescueapp-uat-191143",
-      "StackId": "arn:aws:cloudformation:us-east-1:619341907570:stack/amplify-earthrescueapp-uat-191143/6e32c430-a32d-11ed-bd6d-125c0be1ace5",
+      "DeploymentBucketName": "amplify-earthrescueapp-uat-230745-deployment",
+      "UnauthRoleName": "amplify-earthrescueapp-uat-230745-unauthRole",
+      "StackName": "amplify-earthrescueapp-uat-230745",
+      "StackId": "arn:aws:cloudformation:us-east-1:619341907570:stack/amplify-earthrescueapp-uat-230745/fc348a90-c446-11ed-8f7e-12772b7c0829",
       "AmplifyAppId": "daqmxr6c62kxp",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-earthrescueapp-uat-191143-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-earthrescueapp-uat-230745-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -66,13 +65,29 @@
       },
       "function": {
         "AdminQueriesfc1ee69e": {
-          "deploymentBucketName": "amplify-earthrescueapp-uat-191143-deployment",
+          "deploymentBucketName": "amplify-earthrescueapp-uat-230745-deployment",
           "s3Key": "amplify-builds/AdminQueriesfc1ee69e-62344d6e4e5333734c44-build.zip"
         },
         "earthrescueapp8672bddfPostConfirmation": {
-          "deploymentBucketName": "amplify-earthrescueapp-uat-191143-deployment",
+          "deploymentBucketName": "amplify-earthrescueapp-uat-230745-deployment",
           "s3Key": "amplify-builds/earthrescueapp8672bddfPostConfirmation-6654424664454b676a6f-build.zip"
-        }
+        },
+        "earthrescueappstripe57832ec2": {
+          "deploymentBucketName": "amplify-earthrescueapp-uat-230745-deployment",
+          "s3Key": "amplify-builds/earthrescueappstripe57832ec2-42446578333270484c33-build.zip",
+          "secretsPathAmplifyAppId": "daqmxr6c62kxp",
+          "userPoolsId": "us-east-1_pAnuUTUKs",
+          "clientId": "48loarcs7t6jg2ggv84epgi7p2"
+        },
+        "earthrescueapp8672bddf": {}
+      },
+      "api": {
+        "AdminQueries": {},
+        "earthRescueStripeApi": {},
+        "earthrescueapi": {}
+      },
+      "storage": {
+        "earthrescuemedia": {}
       }
     }
   }
