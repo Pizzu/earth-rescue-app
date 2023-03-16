@@ -25,18 +25,23 @@ const CreateTreePage: NextPageWithLayout = () => {
 
   const onSubmit: SubmitHandler<ITreeForm> = async (data) => {
     const imageToUpload = data.image[0];
-    const storage = await Storage.put(imageToUpload.name, imageToUpload, { level: 'protected' });
-    const imageUrl = await Storage.get(storage.key, { level: 'protected' });
-    console.log('imageUrl', imageUrl);
-    const paylaod = {
-      ...data,
-      image: imageUrl,
-      consume: parseInt(data.consume.toString()),
-      price: parseFloat(data.price.toString()),
-      stripeId: uuidv4(),
-    };
-    console.log(paylaod);
-    addTreeMutation.mutate(paylaod);
+    console.log(imageToUpload);
+    try {
+      const imagePath = uuidv4();
+      const storage = await Storage.put(imagePath, imageToUpload, { contentType: imageToUpload.type, level: 'protected' });
+      const imageURL = await Storage.get(storage.key, { level: 'protected' });
+      const paylaod = {
+        ...data,
+        image: imageURL,
+        consume: parseInt(data.consume.toString()),
+        price: parseFloat(data.price.toString()),
+        stripeId: uuidv4(),
+      };
+      console.log(paylaod);
+      addTreeMutation.mutate(paylaod);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
