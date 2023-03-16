@@ -12,6 +12,14 @@
     {
       "cloudFormationParameterName": "clientId",
       "environmentVariableName": "CLIENT_ID"
+    },
+    {
+      "cloudFormationParameterName": "clientId",
+      "environmentVariableName": "CLIENT_ID"
+    },
+    {
+      "cloudFormationParameterName": "userPoolsId",
+      "environmentVariableName": "USER_POOLS_ID"
     }
   ]
 }

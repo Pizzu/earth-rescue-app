@@ -198,6 +198,14 @@
         }
       ]
     },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_clientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    },
     "AMPLIFY_function_earthrescueappstripe57832ec2_deploymentBucketName": {
       "usedBy": [
         {
@@ -215,6 +223,14 @@
       ]
     },
     "AMPLIFY_function_earthrescueappstripe57832ec2_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_userPoolsId": {
       "usedBy": [
         {
           "category": "function",
