@@ -22,6 +22,34 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
+    "earthRescueStripeApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        },
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "earthrescueapp8672bddf"
+        },
+        {
+          "attributes": [
+            "AdministratorsGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "earthrescueapi": {
       "dependsOn": [
         {
@@ -129,6 +157,12 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "earthrescueappstripe57832ec2": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -171,6 +205,68 @@
           "resourceName": "earthrescueapp8672bddfPostConfirmation"
         }
       ]
+    },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_clientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    },
+    "AMPLIFY_function_earthrescueappstripe57832ec2_userPoolsId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "earthrescueappstripe57832ec2"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "earthrescuemedia": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "earthrescueapp8672bddf"
+        },
+        {
+          "attributes": [
+            "AdministratorsGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }

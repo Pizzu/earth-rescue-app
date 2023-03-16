@@ -1,7 +1,6 @@
 import { HeadingText, SingleText } from '@components/typography';
 import { Button, Card } from '@components/ui';
 import Image from 'next/image';
-
 export interface IProductCard {
   title: string;
   price: number;

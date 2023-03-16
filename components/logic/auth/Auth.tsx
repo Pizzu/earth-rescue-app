@@ -27,7 +27,7 @@ const Auth: React.FC<IAuth> = ({ pageAuth, children }) => {
     const checkPageAuth = () => {
       if (pageAuth?.isAuthRequired) {
         if (session?.user) {
-          if (session?.cognitoGroup === pageAuth.authLevel) {
+          if (session?.cognitoGroup === pageAuth.authLevel || session.cognitoGroup === 'Administrators') {
             setShowPage(true);
           } else {
             setShowPage(false);
@@ -40,6 +40,7 @@ const Auth: React.FC<IAuth> = ({ pageAuth, children }) => {
       } else {
         if (session?.user) {
           if (router.pathname === '/signin' || router.pathname === '/signup') {
+            setShowPage(false);
             router.push('/');
           } else {
             setShowPage(true);

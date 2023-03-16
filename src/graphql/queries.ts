@@ -10,8 +10,10 @@ export const getTree = /* GraphQL */ `
       name
       description
       price
+      priceId
       meaning
       consume
+      stripeId
       createdAt
       updatedAt
     }
@@ -30,8 +32,10 @@ export const listTrees = /* GraphQL */ `
         name
         description
         price
+        priceId
         meaning
         consume
+        stripeId
         createdAt
         updatedAt
       }
