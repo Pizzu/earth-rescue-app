@@ -182,14 +182,6 @@
         }
       ]
     },
-    "AMPLIFY_function_earthrescueapp8672bddfPostConfirmation_GROUP": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescueapp8672bddfPostConfirmation"
-        }
-      ]
-    },
     "AMPLIFY_function_earthrescueapp8672bddfPostConfirmation_deploymentBucketName": {
       "usedBy": [
         {
@@ -203,14 +195,6 @@
         {
           "category": "function",
           "resourceName": "earthrescueapp8672bddfPostConfirmation"
-        }
-      ]
-    },
-    "AMPLIFY_function_earthrescueappstripe57832ec2_clientId": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescueappstripe57832ec2"
         }
       ]
     },
@@ -231,14 +215,6 @@
       ]
     },
     "AMPLIFY_function_earthrescueappstripe57832ec2_secretsPathAmplifyAppId": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescueappstripe57832ec2"
-        }
-      ]
-    },
-    "AMPLIFY_function_earthrescueappstripe57832ec2_userPoolsId": {
       "usedBy": [
         {
           "category": "function",
