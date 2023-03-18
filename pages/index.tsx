@@ -61,6 +61,7 @@ const Home: NextPageWithLayout = () => {
                 key={tree.id}
                 title={tree.name}
                 price={tree.price}
+                priceId={tree.priceId}
                 image={tree.image}
                 meaning={tree.meaning}
                 consume={tree.consume}

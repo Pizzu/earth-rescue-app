@@ -1,16 +1,33 @@
 import { HeadingText, SingleText } from '@components/typography';
 import { Button, Card } from '@components/ui';
+import getStripe from '@lib/stripe';
 import Image from 'next/image';
 export interface IProductCard {
   title: string;
   price: number;
+  priceId?: string | null;
   image: string;
   meaning: string;
   consume: number;
 }
 
-const ProductCard: React.FC<IProductCard> = ({ title, price, image, meaning, consume }) => {
+const ProductCard: React.FC<IProductCard> = ({ title, price, priceId, image, meaning, consume }) => {
   const formatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' });
+
+  const openCheckout = async () => {
+    const stripe = await getStripe();
+    await stripe?.redirectToCheckout({
+      lineItems: [
+        {
+          price: priceId ? priceId : undefined,
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      successUrl: 'http://localhost:3000/',
+      cancelUrl: 'http://localhost:3000/',
+    });
+  };
 
   return (
     <Card background="bg-neutral-200" height="h-full">
@@ -58,7 +75,7 @@ const ProductCard: React.FC<IProductCard> = ({ title, price, image, meaning, con
           <Button type="btn-small" color="secondary" linkUrl="/trees">
             Show details
           </Button>
-          <Button type="btn-small" color="primary">
+          <Button onClick={() => openCheckout()} type="btn-small" color="primary">
             Add to cart
           </Button>
         </div>
