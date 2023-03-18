@@ -1,6 +1,6 @@
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import { ICreateStripeTreeResponse, ITreePayload } from '@type/forms';
-import { Auth } from 'aws-amplify';
+import { Auth, Storage } from 'aws-amplify';
 import { CreateTreeMutation, ListTreesQuery, Tree } from 'src/API';
 import { createTree } from 'src/graphql/mutations';
 import { listTrees } from 'src/graphql/queries';
@@ -10,7 +10,17 @@ export const getTrees = async () => {
     query: listTrees,
     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
   });
-  return result.data?.listTrees?.items as Tree[];
+
+  const treeList = result.data?.listTrees?.items as Tree[];
+  const updatedTreeList = await Promise.all(
+    treeList.map(async (tree) => {
+      const imageKey = tree.image;
+      const imageUrl = await Storage.get(imageKey, { level: 'protected' });
+      tree.image = imageUrl;
+      return tree;
+    })
+  );
+  return updatedTreeList;
 };
 
 export const createTreeProduct = async (data: ITreePayload) => {

@@ -30,6 +30,7 @@ const SessionProvider: React.FC<ISessionProvider> = ({ children }) => {
     try {
       setUserAuth({ user: null, isLoading: true, cognitoGroup: null });
       const amplifyUser: CognitoUser = await Auth.currentAuthenticatedUser();
+      console.log(amplifyUser);
       if (amplifyUser) {
         const currentUserSession = await Auth.userSession(amplifyUser);
         const accessToken = currentUserSession.getAccessToken();
