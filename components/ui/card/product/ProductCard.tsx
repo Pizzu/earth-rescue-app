@@ -1,6 +1,7 @@
 import { HeadingText, SingleText } from '@components/typography';
 import { Button, Card } from '@components/ui';
 import getStripe from '@lib/stripe';
+import { useSession } from '@providers/SessionProvider';
 import Image from 'next/image';
 export interface IProductCard {
   title: string;
@@ -13,10 +14,13 @@ export interface IProductCard {
 
 const ProductCard: React.FC<IProductCard> = ({ title, price, priceId, image, meaning, consume }) => {
   const formatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' });
+  const session = useSession();
 
   const openCheckout = async () => {
     const stripe = await getStripe();
     await stripe?.redirectToCheckout({
+      clientReferenceId: session?.user?.attributes.sub,
+      customerEmail: session?.user?.attributes.email,
       lineItems: [
         {
           price: priceId ? priceId : undefined,

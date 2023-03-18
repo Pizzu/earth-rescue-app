@@ -1,7 +1,7 @@
-import { CognitoUser } from '@aws-amplify/auth';
-import { ISessionContext } from '@type/auth';
+import { CognitoUserExt, ISessionContext } from '@type/auth';
 import { Auth, Hub } from 'aws-amplify';
 import { createContext, useContext, useEffect, useState } from 'react';
+
 export interface ISessionProvider {
   children: React.ReactNode;
 }
@@ -29,8 +29,7 @@ const SessionProvider: React.FC<ISessionProvider> = ({ children }) => {
   const checkUserAuth = async () => {
     try {
       setUserAuth({ user: null, isLoading: true, cognitoGroup: null });
-      const amplifyUser: CognitoUser = await Auth.currentAuthenticatedUser();
-      console.log(amplifyUser);
+      const amplifyUser: CognitoUserExt = await Auth.currentAuthenticatedUser();
       if (amplifyUser) {
         const currentUserSession = await Auth.userSession(amplifyUser);
         const accessToken = currentUserSession.getAccessToken();
