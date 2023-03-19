@@ -4,15 +4,15 @@
   "bucketName": "earthrescueapp86f99fff52054333859d656cc532c1c6",
   "storageAccess": "auth",
   "guestAccess": [],
-  "authAccess": [
-    "READ"
-  ],
-  "triggerFunction": "NONE",
+  "authAccess": [],
   "groupAccess": {
     "Administrators": [
       "CREATE_AND_UPDATE",
       "READ",
       "DELETE"
+    ],
+    "Customers": [
+      "READ"
     ]
   }
 }

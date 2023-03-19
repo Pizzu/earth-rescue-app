@@ -28,7 +28,7 @@ const CreateTreePage: NextPageWithLayout = () => {
     console.log(imageToUpload);
     try {
       const imagePath = uuidv4();
-      const storage = await Storage.put(imagePath, imageToUpload, { contentType: imageToUpload.type, level: 'protected' });
+      const storage = await Storage.put(imagePath, imageToUpload, { contentType: imageToUpload.type, level: 'public' });
       const paylaod = {
         ...data,
         image: storage.key,

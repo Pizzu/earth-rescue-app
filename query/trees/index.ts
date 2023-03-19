@@ -15,7 +15,7 @@ export const getTrees = async () => {
   const updatedTreeList = await Promise.all(
     treeList.map(async (tree) => {
       const imageKey = tree.image;
-      const imageUrl = await Storage.get(imageKey, { level: 'protected' });
+      const imageUrl = await Storage.get(imageKey, { level: 'public' });
       tree.image = imageUrl;
       return tree;
     })

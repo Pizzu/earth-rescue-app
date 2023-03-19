@@ -255,6 +255,13 @@
           ],
           "category": "auth",
           "resourceName": "userPoolGroups"
+        },
+        {
+          "attributes": [
+            "CustomersGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
         }
       ],
       "providerPlugin": "awscloudformation",
