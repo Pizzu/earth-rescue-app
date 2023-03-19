@@ -1,0 +1,6 @@
+{
+  "lambdaLayers": [],
+  "secretNames": [
+    "stripe_secret_key_test"
+  ]
+}

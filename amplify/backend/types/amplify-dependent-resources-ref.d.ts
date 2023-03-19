@@ -10,6 +10,11 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiName": "string",
       "RootUrl": "string"
     },
+    "earthrescueStripeCustomerApi": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
     "earthrescueapi": {
       "GraphQLAPIEndpointOutput": "string",
       "GraphQLAPIIdOutput": "string",
@@ -47,6 +52,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string"
     },
     "earthrescueappstripe57832ec2": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "earthrescuestripecustomer": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

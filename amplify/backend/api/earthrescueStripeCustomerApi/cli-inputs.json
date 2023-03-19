@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/create-customer": {
+      "name": "/create-customer",
+      "lambdaFunction": "earthrescuestripecustomer",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}
