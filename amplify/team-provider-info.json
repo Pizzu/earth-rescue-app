@@ -35,11 +35,7 @@
           "userPoolsId": "us-east-1_QzV1o4WJo"
         },
         "earthrescueapp8672bddf": {},
-        "earthrescuestripecustomer": {
-          "secretsPathAmplifyAppId": "daqmxr6c62kxp",
-          "deploymentBucketName": "amplify-earthrescueapp-dev-182401-deployment",
-          "s3Key": "amplify-builds/earthrescuestripecustomer-45546579753678705133-build.zip"
-        }
+        "earthrescuestripecustomer": {}
       },
       "storage": {
         "earthrescuemedia": {}
@@ -47,8 +43,7 @@
       "api": {
         "AdminQueries": {},
         "earthRescueStripeApi": {},
-        "earthrescueapi": {},
-        "earthrescueStripeCustomerApi": {}
+        "earthrescueapi": {}
       }
     }
   },

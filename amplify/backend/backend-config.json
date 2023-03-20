@@ -50,20 +50,6 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
-    "earthrescueStripeCustomerApi": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "earthrescuestripecustomer"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    },
     "earthrescueapi": {
       "dependsOn": [
         {
@@ -177,12 +163,6 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    },
-    "earthrescuestripecustomer": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
     }
   },
   "parameters": {
@@ -255,30 +235,6 @@
         {
           "category": "function",
           "resourceName": "earthrescueappstripe57832ec2"
-        }
-      ]
-    },
-    "AMPLIFY_function_earthrescuestripecustomer_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescuestripecustomer"
-        }
-      ]
-    },
-    "AMPLIFY_function_earthrescuestripecustomer_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescuestripecustomer"
-        }
-      ]
-    },
-    "AMPLIFY_function_earthrescuestripecustomer_secretsPathAmplifyAppId": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "earthrescuestripecustomer"
         }
       ]
     }
