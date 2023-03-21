@@ -6,7 +6,17 @@ export interface IPageAuthorization {
 }
 
 export interface ISessionContext {
-  user?: CognitoUser | null;
+  user?: CognitoUserExt | null;
   isLoading: boolean;
   cognitoGroup?: 'Customers' | 'Administrators' | null;
+}
+
+export interface UserAttributes {
+  sub: string;
+  email: string;
+  email_verified: string;
+}
+
+export interface CognitoUserExt extends CognitoUser {
+  attributes: UserAttributes;
 }

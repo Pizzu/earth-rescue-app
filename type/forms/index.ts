@@ -32,3 +32,7 @@ export interface ITreePayload {
 export interface ICreateStripeTreeResponse {
   result: { priceId: string };
 }
+
+export interface ICreateStripeCustomerResponse {
+  result: { stripeCustomerId: string };
+}

@@ -28,11 +28,10 @@ const CreateTreePage: NextPageWithLayout = () => {
     console.log(imageToUpload);
     try {
       const imagePath = uuidv4();
-      const storage = await Storage.put(imagePath, imageToUpload, { contentType: imageToUpload.type, level: 'protected' });
-      const imageURL = await Storage.get(storage.key, { level: 'protected' });
+      const storage = await Storage.put(imagePath, imageToUpload, { contentType: imageToUpload.type, level: 'public' });
       const paylaod = {
         ...data,
-        image: imageURL,
+        image: storage.key,
         consume: parseInt(data.consume.toString()),
         price: parseFloat(data.price.toString()),
         stripeId: uuidv4(),
